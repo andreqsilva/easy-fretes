@@ -13,7 +13,33 @@ const css = StyleSheet.create({
 
   search: {
     height: '40%',
+    //backgroundColor: '#fff'
+  },
+
+  distance:{
+      flex:1,
+      justifyContent: 'center',
+      alignItems:'center',
+      padding: 10
+  },
+  distance_text:{
+      fontSize:20,
+      fontWeight:'bold'
+  },
+  price:{
+      backgroundColor: '#000',
+      padding: 7,
+      borderRadius:4,
+      marginTop:30,
+      justifyContent:'center',
+      alignItems: 'center'
+  },
+  price_text:{
+      color:'#fff',
+      fontWeight: 'bold',
+      fontSize: 20
   }
+
 });
 
 export {css};
