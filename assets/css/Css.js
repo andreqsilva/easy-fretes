@@ -63,7 +63,8 @@ const css = StyleSheet.create({
     backgroundColor: '#FFC56F',
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#333'
+    color: '#333',
+    showLabel: false
   },
 
   logo: {

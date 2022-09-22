@@ -10,10 +10,15 @@ export default function AreaRestrita() {
   const Tab = createMaterialBottomTabNavigator();
 
   return (
+
     <Tab.Navigator
       activeColor='black'
       inactiveColor='#fff'
       barStyle={css.area_tab}
+      screenOptions={{
+        tabBarInactiveTintColor: 'green',
+        tabBarActiveTintColor: 'red',
+  	 }}
     >
       <Tab.Screen
         name='Procurar'
