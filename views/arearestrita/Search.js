@@ -1,13 +1,12 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-import { css } from '../assets/css/Css';
+import { css } from '../../assets/css/Css';
 import MapView from 'react-native-maps';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import MapViewDirections from 'react-native-maps-directions';
-import config from '../config';
-import { MaterialIcons } from '@expo/vector-icons';
+import config from '../../config';
 
 export default function Search(props) {
 
@@ -19,31 +18,11 @@ export default function Search(props) {
   const [price,setPrice] = useState(null);
   const [adress,setAdress] = useState(null);
 
-  //console.log(props);
-
-  useEffect(()=>{
-      (async function(){
-
-          //const { status, permissions } = await Permissions.askAsync(Permissions.LOCATION);
-          let {status} = await Location.requestForegroundPermissionsAsync();
-          if (status === 'granted') {
-              let location = await Location.getCurrentPositionAsync({enableHighAccuracy: true});
-              console.log(location);
-              setOrigin({
-                  latitude: location.coords.latitude,
-                  longitude: location.coords.longitude,
-                  latitudeDelta: 0.00922,
-                  longitudeDelta: 0.00421
-              })
-          } else {
-              throw new Error('Location permission not granted');
-          }
-      })();
-  },[]);
-
   return (
 
     <View style={css.container}>
+
+    <Text style={{alignSelf: 'center'}}>EM CONSTRUÇÃO</Text>
 
       {destination &&
         <MapViewDirections
@@ -60,30 +39,41 @@ export default function Search(props) {
         />
       }
 
-      <View style={{height: '20%', flexDirection: 'column', alignItems: 'center', backgroundColor: 'green'}}>
-        <Image style={{paddingVertical: 5}}
-          source={require('../assets/img/frame-7.png')}
+      <View style={{
+          height: '20%',
+          flexDirection: 'column',
+          alignItems: 'center',
+          position: 'relative'
+        }}>
+        <Image style={{paddingVertical: 5, right: 5}}
+          source={require('../../assets/img/frame-7.png')}
         />
         <Image
-          source={require('../assets/img/truck-icon.png')}
+          source={require('../../assets/img/truck-icon.png')}
           style={{
             alignSelf: 'flex-end',
-
+            bottom: 80,
+            left: 5
           }}
         />
       </View>
 
-      <View style={{height: '40%'}}>
+      <View style={{height: '30%'}}>
         <Image
-          source={require('../assets/img/moving.png')}
+          source={require('../../assets/img/moving.png')}
           style={{
-
+            bottom: 60
           }}
         />
       </View>
 
 
-      <View style={css.search}>
+      <View style={{
+        //backgroundColor: 'green',
+        height: '40%',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}>
 
         <GooglePlacesAutocomplete
           placeholder='De (insira o endereço completo)'
@@ -124,14 +114,23 @@ export default function Search(props) {
           styles = {css.search_autocomplete}
         />
 
-        {distance &&
-          <View style={css.distance}>
-            <Text style={css.distance_text}>Distância: {distance.toFixed(2).replace(',', ',')}km</Text>
-            <TouchableOpacity style={css.price} onPress={() => props.navigation.navigate('Checkout',{price: price.toFixed(2), adress: adress})}>
-              <Text style={css.price_text}><MaterialIcons name="payment" size={24} color="" />Pagar R&{price.toFixed(2).replace('.', ',')}</Text>
-            </TouchableOpacity>
-          </View>
-        }
+        <TouchableOpacity style={{
+          backgroundColor: 'rgba(255, 108, 1, 1)',
+          color: '#fff',
+          width: '80%',
+          height: 55,
+          alignItems: 'center',
+          justifyContent: 'center',
+          //borderRadius: 55,
+          //marginBottom: 180,
+          borderBottomRightRadius: 10,
+          borderBottomLeftRadius: 10,
+          shadowColor: 'black',
+          elevation: 3,
+          bottom: 10,
+        }}>
+          <Text style={css.letra}>Procurar</Text>
+        </TouchableOpacity>
 
       </View>
 
