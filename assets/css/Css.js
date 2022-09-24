@@ -4,6 +4,7 @@ const css = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    alignItems: 'center',
     justifyContent: 'center',
   },
 
@@ -64,7 +65,6 @@ const css = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     color: '#333',
-    showLabel: false
   },
 
   logo: {
@@ -104,8 +104,42 @@ const css = StyleSheet.create({
     marginTop: 90,
     shadowColor: 'black',
     elevation: 3,
-  }
+  },
 
+  orangebg: {
+      backgroundColor: '#FFA666'
+  },
+  login_msg:(text='none')=> ({
+    fontWeight: 'bold',
+    fontSize: 15,
+    color: '#fff',
+    marginTop: 10,
+    marginBottom: 15,
+    display: text
+  }),
+  login_form: {
+    width: '80%'
+  },
+  login_input: {
+    backgroundColor: '#fff',
+    fontSize: 19,
+    padding: 7,
+    marginBottom: 15,
+  },
+  login_button: {
+    backgroundColor: 'rgba(255, 108, 1, 1)',
+    padding: 12,
+    color: '#fff',
+    alignItems: 'center',
+    marginTop: 20,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    shadowColor: 'black',
+    elevation: 3,
+  },
+  login_logomarca: {
+    marginBottom: 10
+  }
 
 
 });

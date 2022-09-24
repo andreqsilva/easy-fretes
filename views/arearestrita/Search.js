@@ -18,10 +18,11 @@ export default function Search(props) {
   const [price,setPrice] = useState(null);
   const [adress,setAdress] = useState(null);
 
+  console.log(props.navigation);
+
   return (
 
     <View style={css.container}>
-
     <Text style={{alignSelf: 'center'}}>EM CONSTRUÇÃO</Text>
 
       {destination &&
@@ -128,7 +129,7 @@ export default function Search(props) {
           shadowColor: 'black',
           elevation: 3,
           bottom: 10,
-        }}>
+        }} >
           <Text style={css.letra}>Procurar</Text>
         </TouchableOpacity>
 
