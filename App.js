@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AreaRestrita from './views/arearestrita/AreaRestrita';
 import Cadastro from './views/Cadastro';
+import { Checkout, Login } from './views/index';
 
 const Stack = createStackNavigator();
 
@@ -12,6 +13,8 @@ export default function App() {
     <NavigationContainer>
 
       <Stack.Navigator>
+
+        <Stack.Screen name='Login' component={Login} options={{headerShown:false}} />
 
         <Stack.Screen
           name='Cadastro'
@@ -28,6 +31,7 @@ export default function App() {
             headerShown:true,
           }}
         />
+
 
       </Stack.Navigator>
     </NavigationContainer>
