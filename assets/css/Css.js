@@ -4,15 +4,14 @@ const css = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    //alignItems: 'center',
+    //justifyContent: 'flex-start',
   },
 
   initial_cadastro: {
-    flex: 1,
-    backgroundColor: 'rgba(255, 197, 110, 1)',
+    //backgroundColor: 'rgba(255, 197, 110, 1)',
+    backgroundColor: '#FFA666',
     alignItems: 'center',
-    justifyContent: 'center',
     flexDirection: 'column',
   },
 
@@ -51,11 +50,22 @@ const css = StyleSheet.create({
       fontSize: 20
   },
   search_autocomplete: {
-    listView: {backgroundColor: 'grey', zIndex: 10},
+    listView: {
+      backgroundColor: '#C5C2C0',
+      zIndex: 10,
+      position: 'relative'
+    },
+    textInput: {
+      marginLeft: 5,
+      marginRight: 5,
+      color: '#5d5d5d',
+      fontSize: 12,
+      height: 30,
+    },
     container: {position: 'relative', width: '80%'},
     textInput: {
       backgroundColor: '#C5C2C0',
-      height: 60,
+      //height: 60,
       borderRadius: 10,
     }
   },
@@ -66,19 +76,6 @@ const css = StyleSheet.create({
     fontWeight: 'bold',
     color: '#333',
   },
-
-  logo: {
-    width: 350,
-    height: 180,
-    marginRight: 10,
-    paddingBottom: 180,
-  },
-
-  frame: {
-    width: 380,
-    marginTop: 70,
-  },
-
   letra: {
     color: '#fff',
     fontWeight: '700',
@@ -92,6 +89,39 @@ const css = StyleSheet.create({
     textDecorationLine: 'underline'
   },
 
+  letra3: {
+    color: '#fff',
+    fontWeight: '400',
+    fontSize: 22,
+    //padding: 40,
+    marginTop: 20,
+  },
+
+  letra4: {
+    color: '#fff',
+    fontWeight: '400',
+    fontSize: 18,
+    //backgroundColor: 'blue'
+  },
+
+  letra5: {
+    color: '#fff',
+    alignItems: 'center',
+    //marginTop: 40,
+    alignSelf: 'center',
+  },
+
+  alinhamentoRow: {
+    //backgroundColor: 'green',
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 5,
+  },
+
+  icon_cadastro: {
+   width: 45
+  },
+
   button: {
     backgroundColor: 'rgba(255, 108, 1, 1)',
     color: '#fff',
@@ -100,11 +130,39 @@ const css = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 55,
-    marginBottom: 180,
-    marginTop: 90,
+    //marginBottom: 180,
+    marginTop: 60,
     shadowColor: 'black',
     elevation: 3,
   },
+
+  button2: {
+   backgroundColor: 'rgba(255, 108, 1, 1)',
+   color: '#fff',
+   width: 350,height: 55,
+   alignItems: 'center',
+   justifyContent: 'center',
+   marginBottom: -20,
+   marginTop: 50,
+   borderBottomLeftRadius: 30,
+   borderBottomRightRadius: 30,
+   shadowColor: 'black',
+   elevation: 3,
+ },
+
+ button3: {
+   backgroundColor: 'rgba(255, 108, 1, 1)',
+   color: '#fff',
+   width: 350,height: 55,
+   alignItems: 'center',
+   justifyContent: 'center',
+   marginBottom: -40,
+   marginTop: 50,
+   borderTopLeftRadius: 30,
+   borderTopRightRadius: 30,
+   shadowColor: 'black',
+   elevation: 3,
+ },
 
   orangebg: {
       backgroundColor: '#FFA666'
@@ -117,16 +175,23 @@ const css = StyleSheet.create({
     marginBottom: 15,
     display: text
   }),
-  login_form: {
-    width: '80%'
-  },
   login_input: {
     backgroundColor: '#fff',
     fontSize: 19,
     padding: 7,
     marginBottom: 15,
   },
+  logo: {
+    width: 380,
+    height: 260,
+  },
+  login_form: {
+    //backgroundColor: 'grey',
+    width: '85%',
+  },
   login_button: {
+    width: '90%',
+    alignSelf: 'center',
     backgroundColor: 'rgba(255, 108, 1, 1)',
     padding: 12,
     color: '#fff',
@@ -138,9 +203,34 @@ const css = StyleSheet.create({
     elevation: 3,
   },
   login_logomarca: {
-    marginBottom: 10
-  }
-
+    //alignSelf: 'flex-end',
+    //backgroundColor: 'blue',
+    //marginBottom: 10,
+    width: 434,
+    height: 314,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  back_menu: {
+    //backgroundColor: 'blue',
+    width: '100%',
+    //height: '5%',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    top: 10
+    //marginTop: 40,
+    //marginBottom: 20
+  },
+  back_button: {
+    //backgroundColor: 'white',
+    marginLeft: 10,
+    textAlign: 'left',
+  },
+  frame: {
+    //backgroundColor: 'green',
+    width: 380,
+    marginTop: 20,
+  },
 
 });
 
