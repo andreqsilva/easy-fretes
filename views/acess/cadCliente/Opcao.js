@@ -9,7 +9,7 @@ export default function Opcao ({navigation}) {
 
   return (
 
-    <SafeAreaView style={[css.container, css.initial_cadastro, {flex: 1}]}>
+    <SafeAreaView style={[css.container, css.initial_cadastro]}>
 
       <View style={css.back_menu}>
         <TouchableOpacity style={css.back_button} onPress={()=>navigation.goBack()}>

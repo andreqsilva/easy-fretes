@@ -7,6 +7,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 export default function EntrarEmail({navigation}) {
 
   const [display,setDisplay] = useState('none');
+  const [display,setDisplay] = useState('none');
+
 
   return (
 
