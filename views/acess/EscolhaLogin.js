@@ -6,31 +6,26 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 export default function EscolhaLogin(props) //CLIENTE OU TRANSPOTADOR
 {
     return (
-        <SafeAreaView style={[css.container, css.initial_cadastro]}>
+        <View style={[css.container, css.initial_cadastro]}>
 
-        <View style={{top: 38}}>
-          <View style={[css.login_logomarca]}>
-                <Image style={css.logo} source={require('../../assets/img/topo.png')}/>
+          <View style={{top: 48}}>
+            <View style={[css.login_logomarca]}>
+              <Image style={css.logo} source={require('../../assets/img/topo.png')}/>
             </View>
           </View>
-          <StatusBar style="auto" />
-            <View>
-              <Image style={css.frame} source={require('../../assets/img/frame1.png')}/>
-            </View>
 
-            <TouchableOpacity
-              style={css.button3}
-            >
-              <Text style={css.letra}>SOU TRANSPOTADOR</Text>
-            </TouchableOpacity>
+            <StatusBar style="auto" />
+              <View>
+                <Image style={css.frame} source={require('../../assets/img/frame1.png')}/>
+              </View>
 
-            <TouchableOpacity
-              style={css.button2}
-              onPress={() => props.navigation.navigate('LoginCliente')}
-            >
-              <Text style={css.letra}>SOU CLIENTE</Text>
-            </TouchableOpacity>
+              <TouchableOpacity style={[css.button2, {marginBottom: -40, borderTopLeftRadius: 30, borderTopRightRadius: 30, borderBottomRightRadius: 0, borderBottomLeftRadius: 0}]}>
+                <Text style={css.letra}>SOU TRANSPOTADOR</Text>
+              </TouchableOpacity>
 
-        </SafeAreaView>
+              <TouchableOpacity style={css.button2} onPress={() => props.navigation.navigate('LoginCliente')}>
+                <Text style={css.letra}>SOU CLIENTE</Text>
+              </TouchableOpacity>
+        </View>
       );
 }

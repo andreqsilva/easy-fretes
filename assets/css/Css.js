@@ -49,6 +49,7 @@ const css = StyleSheet.create({
       fontWeight: 'bold',
       fontSize: 20
   },
+
   search_autocomplete: {
     listView: {
       backgroundColor: '#C5C2C0',
@@ -76,6 +77,7 @@ const css = StyleSheet.create({
     fontWeight: 'bold',
     color: '#333',
   },
+
   letra: {
     color: '#fff',
     fontWeight: '700',
@@ -84,31 +86,10 @@ const css = StyleSheet.create({
 
   letra2: {
     color: '#fff',
-    fontWeight: '700',
-    fontSize: 18,
-    textDecorationLine: 'underline'
-  },
-
-  letra3: {
-    color: '#fff',
     fontWeight: '400',
     fontSize: 22,
     //padding: 40,
     marginTop: 20,
-  },
-
-  letra4: {
-    color: '#fff',
-    fontWeight: '400',
-    fontSize: 18,
-    //backgroundColor: 'blue'
-  },
-
-  letra5: {
-    color: '#fff',
-    alignItems: 'center',
-    //marginTop: 40,
-    alignSelf: 'center',
   },
 
   alinhamentoRow: {
@@ -139,7 +120,8 @@ const css = StyleSheet.create({
   button2: {
    backgroundColor: 'rgba(255, 108, 1, 1)',
    color: '#fff',
-   width: 350,height: 55,
+   width: 350,
+   height: 55,
    alignItems: 'center',
    justifyContent: 'center',
    marginBottom: -20,
@@ -150,23 +132,10 @@ const css = StyleSheet.create({
    elevation: 3,
  },
 
- button3: {
-   backgroundColor: 'rgba(255, 108, 1, 1)',
-   color: '#fff',
-   width: 350,height: 55,
-   alignItems: 'center',
-   justifyContent: 'center',
-   marginBottom: -40,
-   marginTop: 50,
-   borderTopLeftRadius: 30,
-   borderTopRightRadius: 30,
-   shadowColor: 'black',
-   elevation: 3,
- },
-
   orangebg: {
       backgroundColor: '#FFA666'
   },
+
   login_msg:(text='none')=> ({
     fontWeight: 'bold',
     fontSize: 15,
@@ -175,20 +144,24 @@ const css = StyleSheet.create({
     marginBottom: 15,
     display: text
   }),
+
   login_input: {
     backgroundColor: '#fff',
     fontSize: 19,
     padding: 7,
     marginBottom: 15,
   },
+
   logo: {
     width: 380,
     height: 260,
   },
+
   login_form: {
     //backgroundColor: 'grey',
     width: '85%',
   },
+
   login_button: {
     width: '90%',
     alignSelf: 'center',
@@ -202,6 +175,7 @@ const css = StyleSheet.create({
     shadowColor: 'black',
     elevation: 3,
   },
+
   login_logomarca: {
     //alignSelf: 'flex-end',
     //backgroundColor: 'blue',
@@ -211,6 +185,7 @@ const css = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+
   back_menu: {
     //backgroundColor: 'blue',
     width: '100%',
@@ -221,15 +196,35 @@ const css = StyleSheet.create({
     //marginTop: 40,
     //marginBottom: 20
   },
+
   back_button: {
     //backgroundColor: 'white',
     marginLeft: 10,
     textAlign: 'left',
   },
+  
   frame: {
     //backgroundColor: 'green',
     width: 380,
     marginTop: 20,
+  },
+
+  container_direction: {
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+
+  container_cadastro: {   
+    backgroundColor: '#fff',
+    fontSize: 19,
+    padding: 12,
+    //marginBottom: 15,
+    width: 340,
+    borderRadius: 5,
+  },
+
+  cad_dados: { 
+    marginTop: 30,
   },
 
 });

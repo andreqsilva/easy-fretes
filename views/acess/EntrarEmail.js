@@ -46,7 +46,7 @@ export default function EntrarEmail({navigation}) {
             }
           ]}/>
           <View>
-            <Text style={{color: '#fff'}}>Esqueceu sua senha?</Text>
+            <Text style={{color: '#fff', textDecorationLine: 'underline'}}>Esqueceu sua senha?</Text>
           </View>
         <TouchableOpacity style={css.login_button} onPress={()=>{setDisplay('flex'), navigation.navigate('AreaRestrita')}}>
           <Text style={css.letra}>Acessar</Text>

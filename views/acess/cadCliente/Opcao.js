@@ -21,7 +21,9 @@ export default function Opcao ({navigation}) {
         <SafeAreaView>
           <Text style={{color: '#fff', fontSize: 20, fontWeight: '700', marginBottom: 50}}>Como deseja se cadastrar ?</Text>
         </SafeAreaView>
+
         <StatusBar style="auto" />
+
           <View style={css.login_form}>
 
             <View
@@ -29,6 +31,7 @@ export default function Opcao ({navigation}) {
                 [css.alinhamentoRow, css.login_input, {
                  borderTopRightRadius: 10,
                  borderTopLeftRadius: 10,
+                 width: 320
                  //backgroundColor: 'green'
                }]}>
 
@@ -37,48 +40,45 @@ export default function Opcao ({navigation}) {
                 source={require('../../../assets/img/vetorEmail.png')}
               />
 
-              <TextInput
-                    placeholder='Cadastrar com e-mail'
-                    placeholderTextColor='#FF6C01'
-                    style={css.login_input}/>
-                </View>
+                <TouchableOpacity style={css.login_input}><Text style={{color: '#FF6C01', fontSize: 17}}>Cadastrar com e-mail</Text></TouchableOpacity>
+                
+              </View>
+
               <View
                 style={[css.alinhamentoRow, css.login_input,{
                   borderBottomRightRadius: 10,
                   borderBottomLeftRadius: 10, marginBottom: 50}]}>
 
                 <Image
-                  style={[css.icon, {backgroundColor:'blue'}]}
+                  style={[css.icon, {backgroundColor:'blue', borderRadius: 22}]}
                   source={require('../../../assets/img/vetorFacebook.png')}
                 />
 
-                <TextInput
-                  placeholder='Cadastrar com Facebook'
-                  placeholderTextColor='#FF6C01'
-                  style={css.login_input}/>
+                <TouchableOpacity style={css.login_input}><Text style={{color: '#FF6C01', fontSize: 17}}>Cadastrar com Facebook</Text></TouchableOpacity>
+
               </View>
             </View>
 
-              <TouchableOpacity>
-                <View>
-                  <Text style={[css.letra2, {textAlign: 'center'}]}>Já possuí cadastro?</Text>
-                </View>
-              </TouchableOpacity>
+            <TouchableOpacity>
+              <View>
+                <Text style={[css.letra2, {textAlign: 'center'}]}>Já possuí cadastro?</Text>
+              </View>
+            </TouchableOpacity>
 
-              <TouchableOpacity>
-                <View>
-                  <Text
-                    onPress={()=>navigation.navigate('Entrar')}
-                    style={[css.letra2, {
-                    textAlign: 'center',
-                    color: 'blue',
-                    textDecorationLine: 'underline',
-                    fontSize: 15,
-                    marginTop: 5}]}>Entrar</Text>
-                </View>
-              </TouchableOpacity>
+            <TouchableOpacity>
+              <View>
+                <Text
+                  onPress={()=>navigation.navigate('Entrar')}
+                  style={[css.letra2, {
+                  textAlign: 'center',
+                  color: 'blue',
+                  textDecorationLine: 'underline',
+                  fontSize: 17,
+                  marginTop: 5}]}>Entrar</Text>
+              </View>
+            </TouchableOpacity>
 
-            </View>
+          </View>
     </SafeAreaView>
   );
 
