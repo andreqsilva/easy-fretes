@@ -22,7 +22,7 @@ export default function Entrar({navigation}) {
 
       <StatusBar style="auto" />
         <View style={{right: 40}}>
-          <Text style={css.letra3}>Como deseja se conectar ?</Text>
+          <Text style={css.letra2}>Como deseja se conectar ?</Text>
         </View>
 
       <View style={{marginTop: 40, right: 30}}>
@@ -31,25 +31,26 @@ export default function Entrar({navigation}) {
         >
           <View style={css.alinhamentoRow}>
             <Image style={css.icon_cadastro} source={require('../../assets/img/vetorEmail.png')}/>
-            <Text style={css.letra4}>Continuar com e-mail</Text>
+            <Text style={[css.letra2, {fontSize: 18}]}>  Continuar com e-mail</Text>
           </View>
         </TouchableOpacity>
 
         <TouchableOpacity>
           <View style={css.alinhamentoRow}>
             <Image style={css.icon_cadastro} source={require('../../assets/img/vetorFacebook.png')}/>
-            <Text style={css.letra4}>Continuar com facebook</Text>
+            <Text style={[css.letra2, {fontSize: 18}]}>  Continuar com facebook</Text>
           </View>
         </TouchableOpacity>
       </View>
 
       <View style={{marginTop: 60}}>
-        <Text style={css.letra5}>Ainda não possuí cadastro?</Text>
-        <View>
-          <Text style={css.letra5}>Clique aqui</Text>
-        </View>
+        <Text style={{color: '#fff', alignSelf: 'center'}}>Ainda não possuí cadastro?</Text>
       </View>
+      
       <TouchableOpacity>
+        <View>
+          <Text style={{color: '#fff', alignSelf: 'center', textDecorationLine: 'underline'}}>Clique aqui</Text>
+        </View>
       </TouchableOpacity>
 
     </SafeAreaView>

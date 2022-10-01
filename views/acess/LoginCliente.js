@@ -34,7 +34,7 @@ export default function LoginCliente({navigation}) {
         onPress={()=>navigation.navigate('Entrar')}
         style={{marginTop: 50}}
       >
-        <Text style={css.letra2}>Entrar</Text>
+        <Text style={[css.letra, {textDecorationLine: 'underline'}]}>Entrar</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
