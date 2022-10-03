@@ -227,6 +227,20 @@ const css = StyleSheet.create({
     marginTop: 30,
   },
 
+  msg_selfie: {
+    color: 'rgba(255, 108, 1, 1)', 
+    fontSize: 19, 
+    fontWeight: 'bold'
+  },
+
+  anexdoc_Ct2: {
+    borderRadius: 10, 
+    padding: 11,
+    backgroundColor: '#fff',
+    marginTop: 50,
+    width: 320
+  }
+
 });
 
 export {css};

@@ -21,7 +21,9 @@ import Fp1 from './acess/forgetPw/Fp1';
 import Fp2 from './acess/forgetPw/Fp2';
 import Fp3 from './acess/forgetPw/Fp3';
 
-
+import Ct1 from './acess/cadTransportador/Ct1';
+import Ct2 from './acess/cadTransportador/Ct2';
+import Foto from './acess/cadTransportador/Foto';
 
 export {
   Search,
@@ -43,4 +45,7 @@ export {
   Fp1,
   Fp2,
   Fp3,
+  Ct1,
+  Ct2,
+  Foto,
 };
