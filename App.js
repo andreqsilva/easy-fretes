@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { HeaderBackButton } from '@react-navigation/elements';
 import AreaRestrita from './views/arearestrita/AreaRestrita';
 
-import { Checkout, EscolhaLogin, LoginCliente, Entrar, EntrarEmail, Opcao, Cc1, Cc2, Cc3, Cc4, CadConf, CadPend, Fp1, Fp2, Fp3} from './views/index';
+import { Checkout, EscolhaLogin, LoginCliente, Entrar, EntrarEmail, Opcao, Cc1, Cc2, Cc3, Cc4, CadConf, CadPend, Fp1, Fp2, Fp3, Ct1, Ct2, Foto} from './views/index';
 
 const Stack = createStackNavigator();
 
@@ -17,8 +17,8 @@ export default function App(props) {
       <Stack.Navigator>
 
         <Stack.Screen
-          name='Fp1'
-          component={Fp1}
+          name='Ct2'
+          component={Ct2}
           options={{
             headerShown: false
           }}
