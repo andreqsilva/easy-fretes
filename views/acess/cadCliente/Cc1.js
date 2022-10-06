@@ -1,37 +1,78 @@
-import { StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
+import React, {useState, useEffect, useRef} from 'react';
+import { StyleSheet, Text, View, Image, TextInput, Button,
+          TouchableOpacity, KeyboardAvoidingView} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { css } from '../../../assets/css/Css';
 import { StatusBar } from 'expo-status-bar';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import MenuAcess from '../../../assets/components/MenuAcess';
+import config from '../../../config/config.json';
 
-export default function Cc1 (props) {
+export default function Cc1 ({navigation}) {
+
+  const [email,setEmail] = useState('none');
+  const [msg,setMsg] = useState('none');
+  const [display,setDisplay] = useState('none');
+
+  // validar email
+
+  // Verifica se o e-mail está cadastrado
+  async function sendFormMail() {
+    let response = await fetch(`${config.urlRoot}verifyMail`, {
+      method: 'POST',
+      body: JSON.stringify({
+        email: email
+      }),
+      headers:{
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    });
+    let json = await response.json();
+    if (json != 'error') {
+      setMsg('E-mail já cadastrado');
+      setDisplay('flex');
+      setTimeout(()=>{
+        setDisplay('none');
+      }, 5000);
+    } else {
+      navigation.navigate('Cc2', {email:email});
+    }
+  }
 
     return (
-        <SafeAreaView style={[css.initial_cadastro, {flex: 1}]}>
 
-            <View style={css.back_menu}>
-                <TouchableOpacity style={css.back_button} onPress={()=>navigation.goBack()}>
-                    <Icon name='arrow-left' size={32} color='black' />
-                </TouchableOpacity>
-            </View>
+      <SafeAreaView style={[css.initial_cadastro, {flex: 1}]}>
 
-            <View style={[css.container_direction, {marginTop: 40}]}>
-    
-                <View>
+        <MenuAcess navigation={navigation}/>
 
-                    <Text style={[css.letra, {fontSize: 22}]}>Qual o seu e-mail ?</Text>
+        <View style={[css.login_form, {marginTop: 40, height:'80%'}]}>
+          <View>
+            <Text style={[css.letra, {fontSize: 22}]}>Qual o seu e-mail ?</Text>
 
-                    <TextInput placeholder='  Digite seu e-mail' placeholderTextColor='#FF6C01' style={[css.cad_dados, css.container_cadastro]}/>
-                </View>
+            <TextInput
+              placeholder='  Digite seu e-mail'
+              placeholderTextColor='#FF6C01'
+              onChangeText={text=>setEmail(text)}
+              style={[css.cad_dados, css.container_cadastro]}
+            />
+          </View>
 
-                    
-                <TouchableOpacity onPress={() => props.navigation.navigate('Cc2')}> 
-                    <KeyboardAvoidingView>
-                        <Image source={require('../../../assets/img/btnNext.png')}/>
-                    </KeyboardAvoidingView>
-                </TouchableOpacity>
-            </View>
+          <View>
+            <Text style={css.forget_msg(display)}>{msg}</Text>
+          </View>
 
-        </SafeAreaView>
+        </View>
+
+
+        <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          style={{flex:1, justifyContent:'flex-end'}}
+        >
+          <TouchableOpacity onPress={()=>sendFormMail()} style={{bottom:70}}>
+            <Image source={require('../../../assets/img/btnNext.png')}/>
+          </TouchableOpacity>
+        </KeyboardAvoidingView>
+
+      </SafeAreaView>
       );
-}  
+}

@@ -4,17 +4,14 @@ import { css } from '../../assets/css/Css';
 import React, { useState, useEffect } from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import MenuAcess from '../../assets/components/MenuAcess';
 
 export default function Entrar({navigation}) {
 
   return (
     <SafeAreaView style={[css.container, css.initial_cadastro]}>
 
-    <View style={css.back_menu}>
-      <TouchableOpacity style={css.back_button} onPress={()=>navigation.goBack()}>
-        <Icon name='arrow-left' size={32} color='black' />
-      </TouchableOpacity>
-    </View>
+      <MenuAcess navigation={navigation}/>
 
       <View style={css.login_logomarca}>
           <Image style={css.logo} source={require('../../assets/img/topo.png')}/>
@@ -30,15 +27,15 @@ export default function Entrar({navigation}) {
           onPress={() => navigation.navigate('EntrarEmail')}
         >
           <View style={css.alinhamentoRow}>
-            <Image style={css.icon_cadastro} source={require('../../assets/img/vetorEmail.png')}/>
-            <Text style={[css.letra2, {fontSize: 18}]}>  Continuar com e-mail</Text>
+            <Image style={css.icon_cadastro} source={require('../../assets/img/vetorEmailAcess.png')}/>
+            <Text style={[css.letra2, {fontSize: 18, bottom:10}]}>  Continuar com e-mail</Text>
           </View>
         </TouchableOpacity>
 
         <TouchableOpacity>
-          <View style={css.alinhamentoRow}>
-            <Image style={css.icon_cadastro} source={require('../../assets/img/vetorFacebook.png')}/>
-            <Text style={[css.letra2, {fontSize: 18}]}>  Continuar com facebook</Text>
+          <View style={[css.alinhamentoRow]}>
+            <Image style={[css.icon_cadastro]} source={require('../../assets/img/vetorFacebookAcess.png')}/>
+            <Text style={[css.letra2, {fontSize: 18, bottom:10}]}>  Continuar com facebook</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -46,8 +43,10 @@ export default function Entrar({navigation}) {
       <View style={{marginTop: 60}}>
         <Text style={{color: '#fff', alignSelf: 'center'}}>Ainda não possuí cadastro?</Text>
       </View>
-      
-      <TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={()=>navigation.navigate('Opcao')}
+      >
         <View>
           <Text style={{color: '#fff', alignSelf: 'center', textDecorationLine: 'underline'}}>Clique aqui</Text>
         </View>

@@ -124,10 +124,9 @@ const css = StyleSheet.create({
    height: 55,
    alignItems: 'center',
    justifyContent: 'center',
-   marginBottom: -20,
+   marginBottom: -35,
    marginTop: 50,
-   borderBottomLeftRadius: 30,
-   borderBottomRightRadius: 30,
+   borderRadius: 30,
    shadowColor: 'black',
    elevation: 3,
  },
@@ -142,6 +141,15 @@ const css = StyleSheet.create({
     color: '#fff',
     marginTop: 10,
     marginBottom: 15,
+    display: text
+  }),
+
+  forget_msg:(text='none')=> ({
+    fontWeight: 'bold',
+    fontSize: 15,
+    color: '#fff',
+    marginTop: 15,
+    marginBottom: 5,
     display: text
   }),
 
@@ -163,15 +171,15 @@ const css = StyleSheet.create({
   },
 
   login_button: {
-    width: '90%',
-    alignSelf: 'center',
+    width: '100%',
+    //alignSelf: 'center',
     backgroundColor: 'rgba(255, 108, 1, 1)',
     padding: 12,
     color: '#fff',
     alignItems: 'center',
     marginTop: 20,
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
+    borderRadius: 5,
+    //borderBottomRightRadius: 10,
     shadowColor: 'black',
     elevation: 3,
   },
@@ -202,7 +210,7 @@ const css = StyleSheet.create({
     marginLeft: 10,
     textAlign: 'left',
   },
-  
+
   frame: {
     //backgroundColor: 'green',
     width: 380,
@@ -210,20 +218,22 @@ const css = StyleSheet.create({
   },
 
   container_direction: {
+    height: '80%',
     flexDirection: 'column',
     alignItems: 'center',
+    //backgroundColor:'blue'
   },
 
-  container_cadastro: {   
+  container_cadastro: {
     backgroundColor: '#fff',
     fontSize: 19,
     padding: 12,
     //marginBottom: 15,
-    width: 340,
+    width: '100%',
     borderRadius: 5,
   },
 
-  cad_dados: { 
+  cad_dados: {
     marginTop: 30,
   },
 

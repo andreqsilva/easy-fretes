@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity} from 'react-native';
 import { css } from '../../assets/css/Css';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import MenuAcess from '../../assets/components/MenuAcess';
 
 export default function EscolhaLogin(props) //CLIENTE OU TRANSPOTADOR
 {
@@ -19,7 +20,7 @@ export default function EscolhaLogin(props) //CLIENTE OU TRANSPOTADOR
                 <Image style={css.frame} source={require('../../assets/img/frame1.png')}/>
               </View>
 
-              <TouchableOpacity style={[css.button2, {marginBottom: -40, borderTopLeftRadius: 30, borderTopRightRadius: 30, borderBottomRightRadius: 0, borderBottomLeftRadius: 0}]}>
+              <TouchableOpacity style={[css.button2]}>
                 <Text style={css.letra}>SOU TRANSPOTADOR</Text>
               </TouchableOpacity>
 

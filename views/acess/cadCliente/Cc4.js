@@ -1,47 +1,89 @@
-import { StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
+import React, {useState, useEffect, useRef} from 'react';
+import { StyleSheet, Text, View, Image, TextInput, Button,
+        TouchableOpacity, KeyboardAvoidingView} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { css } from '../../../assets/css/Css';
 import { StatusBar } from 'expo-status-bar';
-import {useState} from "react";
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import MenuAcess from '../../../assets/components/MenuAcess';
+import config from '../../../config/config.json';
 
 export default function Cc4 (props) {
 
-    const [isPassword, setIsPassword] = useState(true);
+  const [isPassword,setIsPassword] = useState(true);
+  const [password,setPassword] = useState('none');
+  // verificação de senha
 
-    return (
+  // cria usuário
+  async function sendFormCreate() {
+    let response = await fetch(`${config.urlRoot}create`, {
+      method: 'POST',
+      body: JSON.stringify({
+        email: props.route.params.email,
+        name: props.route.params.name,
+        password: password
+      }),
+      headers:{
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    });
+    let json = await response.json();
+    console.log(JSON.stringify(json));
+    if (json == 'error') {
+      console.log('error');
+    } else {
+      props.navigation.navigate('CadConf');
+    }
+    /*
+    if (json == 'error') {
+      setMsg('E-mail não cadastrado');
+      setDisplay('flex');
+      setTimeout(()=>{
+        setDisplay('none');
+      }, 5000);
+    } else {
+      setId(json);
+      sendFormCode();
+    }
+    */
+  }
 
-        <SafeAreaView style={[css.initial_cadastro, {flex: 1}]}>
+  return (
 
-            <View style={css.back_menu}>
-                <TouchableOpacity style={css.back_button} onPress={()=>navigation.goBack()}>
-                    <Icon name='arrow-left' size={32} color='black' />
-                </TouchableOpacity>
-            </View>
+    <SafeAreaView style={[css.initial_cadastro, {flex: 1}]}>
 
-            <View style={[css.container_direction, {marginTop: 40}]}>
-    
-                <View>
-                    <View style={css.mensagem}>
-                        <Text style={[css.letra, {fontSize: 22}]}>Insira uma senha agora</Text>
+      <MenuAcess navigation={props.navigation}/>
 
-                    <View>
-                        <Text style={[css.letra, {fontSize: 13, textAlign: 'center', marginTop: 25}]}>Combine pelo menos 8 caracteres, incluindo letras, números e caracteres especiais para garantir uma melhor segurança</Text>
-                    </View>
+      <View style={[css.login_form, {marginTop: 40, height: '80%'}]}>
+        <View>
+          <View style={css.mensagem}>
+            <Text style={[css.letra, {fontSize: 22}]}>Insira uma senha agora</Text>
 
-                    <TextInput placeholder='  Insira sua senha' placeholderTextColor='#FF6C01' style={[css.cad_dados, css.container_cadastro, {width: 360}]} secureTextEntry={isPassword}/>
-                </View>
-            </View>
+          <View>
+            <Text
+              style={[css.letra, {fontSize: 13, textAlign: 'center', marginTop: 25}]}
+                      >Combine pelo menos 8 caracteres, incluindo letras, números e caracteres especiais para garantir uma melhor segurança</Text>
+          </View>
 
-                    
-                <TouchableOpacity onPress={() => props.navigation.navigate('CadConf')}> 
-                    <KeyboardAvoidingView>
-                        <Image source={require('../../../assets/img/btnNext.png')}/>
-                    </KeyboardAvoidingView>
-                </TouchableOpacity>
-            </View>
+          <TextInput
+            placeholder='  Insira sua senha'
+            placeholderTextColor='#FF6C01'
+            onChangeText={text=>setPassword(text)}
+            style={[css.cad_dados, css.container_cadastro, {width: 360}]}
+            secureTextEntry={isPassword}/>
+          </View>
+        </View>
+      </View>
 
-        </SafeAreaView>
-      );
-}  
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={{flex:1, justifyContent:'flex-end'}}
+      >
+        <TouchableOpacity style={{bottom: 70}} onPress={()=>sendFormCreate()}>
+            <Image source={require('../../../assets/img/btnNext.png')}/>
+        </TouchableOpacity>
+      </KeyboardAvoidingView>
+
+    </SafeAreaView>
+  );
+}

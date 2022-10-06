@@ -7,13 +7,16 @@ import * as Permissions from 'expo-permissions';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import MapViewDirections from 'react-native-maps-directions';
 import config from '../../config';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 
 const homePlace = {
   description: 'Home',
   geometry: { location: { lat: 48.8152937, lng: 2.4597668 } },
 };
 
-export default function Search(props) {
+export default function Search({navigation}) {
 
   const mapEl = useRef(null);
   const [origin,setOrigin] = useState(null);
@@ -28,7 +31,14 @@ export default function Search(props) {
 
   return (
 
-    <View style={css.container}>
+    <SafeAreaView style={css.container}>
+
+    <View style={css.back_menu}>
+      <TouchableOpacity style={css.back_button} onPress={()=>navigation.goBack()}>
+        <Icon name='arrow-left' size={32} color='black' />
+      </TouchableOpacity>
+    </View>
+
     <Text style={{alignSelf: 'center'}}>EM CONSTRUÇÃO</Text>
 
       {destination &&
@@ -38,7 +48,7 @@ export default function Search(props) {
           apikey = {config.googleApi}
           onReady = {result=>{
             setDistance(result.distance);
-            setPrice(result.distance * 3);
+            setPrice(result.distance * 6);
             //console.log(result.distance);
             //console.log(result.duration);
             setDuration(result.duration);
@@ -127,9 +137,11 @@ export default function Search(props) {
         />
 
         <TouchableOpacity
-          onPress={()=>props.navigation.navigate('Checkout',
-                      {price: price.toFixed(2), distance: distance,
-                       origin: adressOrigin, destination: adressDestination})}
+          onPress={()=>navigation.navigate('Checkout',
+                      {price: price.toFixed(2).replace('.', ','),
+                       distance: distance.toFixed(2).replace('.', ','),
+                       origin: adressOrigin, destination: adressDestination,
+                       duration: duration.toFixed(0)})}
           style={{
             backgroundColor: 'rgba(255, 108, 1, 1)',
             color: '#fff',
@@ -151,6 +163,6 @@ export default function Search(props) {
 
       </View>
 
-    </View>
+    </SafeAreaView>
   );
 }

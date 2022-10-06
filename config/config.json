@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "andre",
-    "password": "password",
-    "database": "teste",
-    "host": "127.0.0.1",
+    "username": "",
+    "password": "",
+    "database": "",
+    "host": "",
     "dialect": "mysql"
   },
   "test": {
@@ -19,5 +19,6 @@
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql"
-  }
+  },
+  "urlRoot": "",
 }

@@ -3,17 +3,15 @@ import { StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity,} fr
 import { css } from '../../assets/css/Css';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import MenuAcess from '../../assets/components/MenuAcess';
 
 export default function LoginCliente({navigation}) {
 
   return (
     <SafeAreaView style={[css.container, css.initial_cadastro]}>
 
-      <View style={css.back_menu}>
-        <TouchableOpacity style={css.back_button} onPress={()=>navigation.goBack()}>
-          <Icon name='arrow-left' size={32} color='black' />
-        </TouchableOpacity>
-      </View>
+      <MenuAcess navigation={navigation} />
+
       <View style={css.login_logomarca}>
           <Image style={css.logo} source={require('../../assets/img/topo.png')}/>
       </View>
