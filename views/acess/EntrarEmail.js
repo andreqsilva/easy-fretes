@@ -5,7 +5,7 @@ import { css } from '../../assets/css/Css';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import MenuAcess from '../../assets/components/MenuAcess';
-import config from '../../config/config.json'
+import config from '../../config/config.json';
 
 export default function EntrarEmail({navigation}) {
 
@@ -114,6 +114,7 @@ export default function EntrarEmail({navigation}) {
         <TouchableOpacity style={css.login_button} onPress={()=>sendForm()}>
           <Text style={css.letra}>Acessar</Text>
         </TouchableOpacity>
+
       </View>
 
     </SafeAreaView>
