@@ -6,8 +6,8 @@ import { HeaderBackButton } from '@react-navigation/elements';
 //import AsyncStorage from '@react-native-async-storage/async-storage';
 import AreaRestrita from './views/arearestrita/AreaRestrita';
 import { Checkout, EscolhaLogin, LoginCliente, Entrar,
-         EntrarEmail, Opcao, Cc1, Cc2, Cc3, Cc4,
-         CadConf, CadPend, Fp1, Fp2, Fp3} from './views/index';
+  EntrarEmail, Opcao, Cc1, Cc2, Cc3, Cc4,
+  CadConf, CadPend, Fp1, Fp2, Fp3, Cv1, Cv2, Cv3, Cv4, Cv5, Cv6, CadConfVeic} from './views/index';
 
 const Stack = createStackNavigator();
 
@@ -17,7 +17,15 @@ export default function App(props) {
 
       <Stack.Navigator>
 
-        <Stack.Screen
+        { <Stack.Screen
+          name='Cv1'
+          component={Cv1}
+          options={{
+            headerShown:false,
+          }}
+        />
+        
+        /*{/* <Stack.Screen
           name='EscolhaLogin'
           component={EscolhaLogin}
           options={{
@@ -25,7 +33,7 @@ export default function App(props) {
           }}
         />
 
-        <Stack.Screen
+        /*<Stack.Screen
           name='LoginCliente'
           component={LoginCliente}
           options={{
@@ -129,7 +137,7 @@ export default function App(props) {
           options={{
             headerShown: false
           }}
-        />
+        /> */}
 
       </Stack.Navigator>
     </NavigationContainer>
