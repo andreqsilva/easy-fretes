@@ -6,7 +6,7 @@ CONFIGURAÇÕES
 
 Abra o diretório clonado em 2 terminais
 
-Em um, execute o comando "expo start
+Em um, execute o comando "expo start"
 
 No outro, "node Controller.js" ou "nodemon Controller.js"
 
