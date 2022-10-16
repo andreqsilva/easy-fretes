@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+//import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { Search, Booking, Messages, Profile, Checkout } from '../views/index';
+import { Search, Booking, Messages, Profile, Checkout, Reserva } from '../views/index';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();

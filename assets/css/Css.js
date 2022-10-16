@@ -22,6 +22,11 @@ const css = StyleSheet.create({
     flex: 1,
   },
 
+  frete_screen: { //PARTE DA PROCURA DE MOTORISTA
+    backgroundColor: '#FFA666', 
+    height: '20%'
+  },
+
   map: {
     height: '60%',
   },
@@ -292,6 +297,16 @@ const css = StyleSheet.create({
     width: '95%',
     borderRadius: 5,
     alignItems: 'center'
+  },
+
+  box_profile: //CAIXA DE PERFIL DE CADA MOTORISTA NA TELA DE ESCOLHA DOS MESMOS
+  {
+    backgroundColor: 'lightgrey', 
+    padding: 20, 
+    width: '90%', 
+    alignSelf: 'center', 
+    borderRadius: 8,
+    //marginTop: 30
   }
 
 });

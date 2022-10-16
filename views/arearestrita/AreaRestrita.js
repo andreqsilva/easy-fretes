@@ -22,7 +22,9 @@ export default function AreaRestrita() {
 
   return (
 
-    <Tab />
+    <View style={{height: 800}}>
+      <Tab/>
+    </View>
 
 
   );
