@@ -30,6 +30,7 @@ import Cv6 from './acess/cadVeiculo/Cv6';
 import CadConfVeic from './acess/cadVeiculo/CadConfVeic';
 
 import Reserva from './fretes/Reserva';
+import SeusFretes from './fretes/SeusFretes';
 
 
 export {
@@ -60,4 +61,5 @@ export {
   Cv6,
   CadConfVeic,
   Reserva,
+  SeusFretes,
 };

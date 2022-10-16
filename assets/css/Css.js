@@ -24,7 +24,13 @@ const css = StyleSheet.create({
 
   frete_screen: { //PARTE DA PROCURA DE MOTORISTA
     backgroundColor: '#FFA666', 
-    height: '20%'
+    height: '20%',
+  },
+
+  seus_fretes: {
+    backgroundColor: '#FFA666', 
+    height: '15%',
+    marginTop: 10
   },
 
   map: {
@@ -307,7 +313,13 @@ const css = StyleSheet.create({
     alignSelf: 'center', 
     borderRadius: 8,
     //marginTop: 30
-  }
+  },
+
+  fretes_text:
+  {
+    fontWeight: 'bold', 
+    fontSize: 32,
+  },
 
 });
 
