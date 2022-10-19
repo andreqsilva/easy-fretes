@@ -57,6 +57,8 @@ export default function Reserva({navigation}) {
                         </View>
 
                         <Text>  São José dos Campos</Text>
+
+                        <Text style={{marginLeft: 100, fontWeight: 'bold'}}> 36 km</Text>
                     </View>
 
                     <View style={css.alinhamentoRow}>
@@ -65,8 +67,16 @@ export default function Reserva({navigation}) {
                         </View>
 
                         <Text>  São Paulo</Text>
+                    </View>
 
-                        <Text style={{marginLeft: 140, fontSize: 20}}>R$ 297,00</Text>
+                    <View style={css.alinhamentoRow}>
+                        <View>
+                            <Image source={require('../../assets/img/check_circle.png')}/>
+                        </View>
+
+                        <Text>  Reserva aprovada</Text>
+
+                        <Text style={{marginLeft: 100, fontSize: 20, fontWeight: 'bold'}}>R$ 297,00</Text>
                     </View>
 
                 </View>

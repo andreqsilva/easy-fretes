@@ -31,6 +31,7 @@ import CadConfVeic from './acess/cadVeiculo/CadConfVeic';
 
 import Reserva from './fretes/Reserva';
 import SeusFretes from './fretes/SeusFretes';
+import PerfilMoto from './fretes/PerfilMoto';
 
 
 export {
@@ -62,4 +63,5 @@ export {
   CadConfVeic,
   Reserva,
   SeusFretes,
+  PerfilMoto
 };

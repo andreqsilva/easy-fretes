@@ -24,7 +24,7 @@ const css = StyleSheet.create({
 
   frete_screen: { //PARTE DA PROCURA DE MOTORISTA
     backgroundColor: '#FFA666', 
-    height: '20%',
+    height: '24%',
   },
 
   seus_fretes: {
@@ -320,6 +320,26 @@ const css = StyleSheet.create({
     fontWeight: 'bold', 
     fontSize: 32,
   },
+
+  perfil_name:
+  {
+    fontSize: 21, 
+    marginTop: 5, 
+    color: 'white', 
+    fontWeight: 'bold'
+  },
+
+  risquinho:
+  {
+    borderWidth: 0.3, 
+    borderColor: "#a9a9a9", 
+    width: 340, 
+    alignSelf: "center", 
+    alignItems: "center", 
+    marginTop: 30
+  },
+
+  
 
 });
 

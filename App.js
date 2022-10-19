@@ -9,7 +9,7 @@ import { Checkout, EscolhaLogin, LoginCliente, Entrar,
   EntrarEmail, Opcao, Cc1, Cc2, Cc3, Cc4,
   CadConf, CadPend, Fp1, Fp2, Fp3, Cv1, Cv2, 
   Cv3, Cv4, Cv5, Cv6, CadConfVeic, Reserva,
-  SeusFretes} from './views/index';
+  SeusFretes, PerfilMoto} from './views/index';
 
 const Stack = createStackNavigator();
 
@@ -20,8 +20,8 @@ export default function App(props) {
       <Stack.Navigator>
 
         { <Stack.Screen
-          name='SeusFretes'
-          component={SeusFretes}
+          name='PerfilMoto'
+          component={PerfilMoto}
           options={{
             headerShown:false,
           }}
