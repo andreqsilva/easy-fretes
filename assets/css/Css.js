@@ -15,6 +15,24 @@ const css = StyleSheet.create({
     flexDirection: 'column',
   },
 
+  initial_cadastro_white: { //PARTE DO CADASTRO DE VEÍCULOS
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    flexDirection: 'column',
+    flex: 1,
+  },
+
+  frete_screen: { //PARTE DA PROCURA DE MOTORISTA
+    backgroundColor: '#FFA666', 
+    height: '24%',
+  },
+
+  seus_fretes: {
+    backgroundColor: '#FFA666', 
+    height: '15%',
+    marginTop: 10
+  },
+
   map: {
     height: '60%',
   },
@@ -236,6 +254,110 @@ const css = StyleSheet.create({
   cad_dados: {
     marginTop: 30,
   },
+
+  container_checkbox: {
+    marginTop: 70,
+    marginRight: 170
+  },
+
+  checkbox: {
+    margin: 8,
+    borderRadius: 20,
+    color: '#FFC100'
+  },
+
+  text_checkbox: {
+    fontSize: 18,
+  },
+
+  text_veiculos: {
+    fontSize: 30, 
+    color: '#FF6C01', 
+    maxWidth: 370,
+    marginRight: 90
+  },
+
+  space_between_checkboxes: {
+    marginTop: 30
+  },
+
+  container_picker: {
+    height: 50, 
+    width: 150, 
+    backgroundColor: '#FFE699',
+    borderRadius: 8,
+    marginTop: 70,
+    marginRight: 100,
+  },
+
+  picker: {
+    height: 50,  
+    width: 150
+  },
+
+  box_input_placa: {
+    backgroundColor: '#FFE699',
+    fontSize: 19,
+    padding: 12,
+    //marginBottom: 15,
+    width: '95%',
+    borderRadius: 5,
+    alignItems: 'center'
+  },
+
+  box_profile: //CAIXA DE PERFIL DE CADA MOTORISTA NA TELA DE ESCOLHA DOS MESMOS
+  {
+    backgroundColor: 'lightgrey', 
+    padding: 20, 
+    width: '90%', 
+    alignSelf: 'center', 
+    borderRadius: 8,
+    //marginTop: 30
+  },
+
+  fretes_text:
+  {
+    fontWeight: 'bold', 
+    fontSize: 32,
+  },
+
+  perfil_name:
+  {
+    fontSize: 21, 
+    marginTop: 5, 
+    color: 'white', 
+    fontWeight: 'bold'
+  },
+
+  risquinho:
+  {
+    borderWidth: 0.3, 
+    borderColor: "#a9a9a9", 
+    width: 340, 
+    alignSelf: "center", 
+    alignItems: "center", 
+    marginTop: 30
+  },
+
+  letra3:
+  {
+    color: '#FF6C01', 
+    fontWeight: 'bold', 
+    fontSize: 28
+  },
+
+  faixa:
+  {
+    borderWidth: 18, 
+    borderColor: "#FF6C01", 
+    width: 420, 
+    marginTop: 30,
+  },
+
+  size_dados:
+  {
+    fontSize: 17
+  }
 
 });
 

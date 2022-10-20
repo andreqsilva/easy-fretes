@@ -21,7 +21,23 @@ import Fp1 from './acess/forgetPw/Fp1';
 import Fp2 from './acess/forgetPw/Fp2';
 import Fp3 from './acess/forgetPw/Fp3';
 
+import Cv1 from './acess/cadVeiculo/Cv1';
+import Cv2 from './acess/cadVeiculo/Cv2';
+import Cv3 from './acess/cadVeiculo/Cv3';
+import Cv4 from './acess/cadVeiculo/Cv4';
+import Cv5 from './acess/cadVeiculo/Cv5';
+import Cv6 from './acess/cadVeiculo/Cv6';
+import CadConfVeic from './acess/cadVeiculo/CadConfVeic';
 
+import Reserva from './fretes/Reserva';
+import SeusFretes from './fretes/SeusFretes';
+import PerfilMoto from './fretes/PerfilMoto';
+import SearchResult from './fretes/SearchResult';
+
+import Pendente from './statusFretesCliente/Pendente';
+
+import Pendencia from './statusFretesMoto/Pendencia';
+import Aprovado from './statusFretesMoto/Aprovado';
 
 export {
   Search,
@@ -43,4 +59,18 @@ export {
   Fp1,
   Fp2,
   Fp3,
+  Cv1,
+  Cv2,
+  Cv3,
+  Cv4,
+  Cv5,
+  Cv6,
+  CadConfVeic,
+  Reserva,
+  SeusFretes,
+  PerfilMoto,
+  SearchResult,
+  Pendente,
+  Pendencia, 
+  Aprovado
 };

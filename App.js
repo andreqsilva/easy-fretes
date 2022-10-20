@@ -3,11 +3,13 @@ import { StyleSheet, Text, Button, View, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { HeaderBackButton } from '@react-navigation/elements';
-//import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import AreaRestrita from './views/arearestrita/AreaRestrita';
 import { Checkout, EscolhaLogin, LoginCliente, Entrar,
-         EntrarEmail, Opcao, Cc1, Cc2, Cc3, Cc4,
-         CadConf, CadPend, Fp1, Fp2, Fp3} from './views/index';
+  EntrarEmail, Opcao, Cc1, Cc2, Cc3, Cc4,
+  CadConf, CadPend, Fp1, Fp2, Fp3, Cv1, Cv2, 
+  Cv3, Cv4, Cv5, Cv6, CadConfVeic, Reserva,
+  SeusFretes, PerfilMoto, SearchResult, Pendente, Pendencia, Aprovado} from './views/index';
 
 const Stack = createStackNavigator();
 
@@ -17,6 +19,22 @@ export default function App(props) {
 
       <Stack.Navigator>
 
+        { <Stack.Screen
+          name='Reserva'
+          component={Reserva}
+          options={{
+            headerShown:false,
+          }}
+        />
+
+        /*{/* <Stack.Screen
+          name='Reserva'
+          component={Reserva}
+          options={{
+            headerShown:false,
+          }}
+        />
+        
         <Stack.Screen
           name='EscolhaLogin'
           component={EscolhaLogin}
@@ -129,7 +147,7 @@ export default function App(props) {
           options={{
             headerShown: false
           }}
-        />
+        /> */}
 
       </Stack.Navigator>
     </NavigationContainer>

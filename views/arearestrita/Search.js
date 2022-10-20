@@ -112,7 +112,7 @@ export default function Search({navigation}) {
               components: 'country:br'
           }}
           enablePoweredByContainer = {false}
-          fetchDetails = {true}
+          //fetchDetails = {true}
           styles = {css.search_autocomplete}
         />
 
