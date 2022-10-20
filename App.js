@@ -9,7 +9,7 @@ import { Checkout, EscolhaLogin, LoginCliente, Entrar,
   EntrarEmail, Opcao, Cc1, Cc2, Cc3, Cc4,
   CadConf, CadPend, Fp1, Fp2, Fp3, Cv1, Cv2, 
   Cv3, Cv4, Cv5, Cv6, CadConfVeic, Reserva,
-  SeusFretes, PerfilMoto} from './views/index';
+  SeusFretes, PerfilMoto, SearchResult, Pendente, Pendencia, Aprovado} from './views/index';
 
 const Stack = createStackNavigator();
 
@@ -20,8 +20,8 @@ export default function App(props) {
       <Stack.Navigator>
 
         { <Stack.Screen
-          name='PerfilMoto'
-          component={PerfilMoto}
+          name='Reserva'
+          component={Reserva}
           options={{
             headerShown:false,
           }}

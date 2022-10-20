@@ -339,7 +339,25 @@ const css = StyleSheet.create({
     marginTop: 30
   },
 
-  
+  letra3:
+  {
+    color: '#FF6C01', 
+    fontWeight: 'bold', 
+    fontSize: 28
+  },
+
+  faixa:
+  {
+    borderWidth: 18, 
+    borderColor: "#FF6C01", 
+    width: 420, 
+    marginTop: 30,
+  },
+
+  size_dados:
+  {
+    fontSize: 17
+  }
 
 });
 

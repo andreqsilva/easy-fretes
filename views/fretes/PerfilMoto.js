@@ -6,7 +6,7 @@ import { css } from '../../assets/css/Css';
 import Tab from '../../navigation/Tabs';
 import MenuAcess from '../../assets/components/MenuAcess';
 
-export default function Reserva({navigation}) {
+export default function ({navigation}) {
 
   return (
 
