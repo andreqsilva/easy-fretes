@@ -1,0 +1,6 @@
+# Usuário
+
+npx sequelize-cli model:generate --name Usuario --attributes num_doc:integer,nome:string,senha:string,telefone:string,email:string,avaliacao:integer,tipo:integer
+
+
+npx sequelize-cli db:migrate
