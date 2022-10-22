@@ -1,6 +1,19 @@
 # Usuário
-
 npx sequelize-cli model:generate --name Usuario --attributes num_doc:integer,nome:string,senha:string,telefone:string,email:string,avaliacao:integer,tipo:integer
 
+# Veículo
+npx sequelize-cli model:generate --name Veiculo --attributes documento:integer,modelo:string,marca:string,porte:string,pesoMax:float,ano:integer,placa:string,tipo:string
+
+# Localização
+npx sequelize-cli model:generate --name Localizacao --attributes latitudeOrigem:string,longitudeOrigem:string,latitudeDestino:string,longitudeDestino:string,distancia:float
+npx sequelize-cli model:generate --name Localization --attributes latitudeOrigem:string,longitudeOrigem:string,latitudeDestino:string,longitudeDestino:string,distancia:float
+
+# Preço
+npx sequelize-cli model:generate --name Preco --attributes codLocalizacao:integer,valor:float,distancia:float
+npx sequelize-cli model:generate --name Price --attributes codLocalizacao:integer,valor:float,distancia:float
+
+# Viagem
+npx sequelize-cli model:generate --name Viagem --attributes status:integer,codLocalizacao:integer,codMotorista:integer,codCliente:integer,codPreco:integer,data:date
+npx sequelize-cli model:generate --name Travel --attributes status:integer,codLocalizacao:integer,codMotorista:integer,codCliente:integer,codPreco:integer,data:date
 
 npx sequelize-cli db:migrate

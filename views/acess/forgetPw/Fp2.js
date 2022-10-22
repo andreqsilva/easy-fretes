@@ -70,12 +70,11 @@ export default function Fp2 (props) {
               behavior={Platform.OS === "ios" ? "padding" : "height"}
               style={{flex:1, justifyContent:'flex-end'}}
             >
-                <TouchableOpacity style={{bottom:70}}
-                  //style={{justifyContent: 'flex-end'}}
-                  onPress={()=>verifyCode()}>
-                  <Image source={require('../../../assets/img/btnNext.png')}/>
-                </TouchableOpacity>
-            </KeyboardAvoidingView>
+              <TouchableOpacity style={{bottom:70}}
+                onPress={()=>verifyCode()}>
+                <Image source={require('../../../assets/img/btnNext.png')}/>
+              </TouchableOpacity>
+          </KeyboardAvoidingView>
 
         </SafeAreaView>
       );

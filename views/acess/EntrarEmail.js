@@ -10,15 +10,20 @@ import config from '../../config/config.json';
 export default function EntrarEmail({navigation}) {
 
   const [display,setDisplay] = useState('none');
-  const [email,setEmail] = useState('none'); // mudar pra email
-  const [password,setPassword] = useState('none');
+  const [email,setEmail] = useState(null);
+  const [password,setPassword] = useState(null);
+  const [errorEmail,setErrorEmail] = useState(null);
+  const [errorPassowrd,setErrorPassword] = useState(null);
   const [login,setLogin] = useState(false);
 
-  useEffect(()=>{
+  //console.log(email);
+  //console.log(password);
+  
+  useEffect(()=> {
     verifyLogin();
   },[]);
 
-  useEffect(()=>{
+  useEffect(()=> {
     if (login == true) {
       sendForm();
     } else {
@@ -26,6 +31,29 @@ export default function EntrarEmail({navigation}) {
       setPassword(null);
     }
   },[login]);
+
+  const validar = () => {
+    let error = false;
+    setErrorEmail(null);
+    setErrorPassword(null);
+    if (email == null) {
+      console.log("Preencha seu e-mail corretamente");
+      setErrorEmail("Preencha seu e-mail corretamente");
+      error = true;
+    }
+    if (password == null) {
+      console.log("Preencha sua senha corretamente");
+      setErrorPassword("Preencha sua senha corretamente");
+      error = true;
+    }
+    return !error;
+  }
+
+  const salvar = () => {
+    if (validar()) {
+      console.log("Salvou");
+    }
+  }
 
   // Verifica se o usuário já possui algum login
   async function verifyLogin() {
@@ -82,31 +110,25 @@ export default function EntrarEmail({navigation}) {
         <Text style={css.login_msg(display)}>E-mail ou senha inválidos</Text>
       </View>
 
-      <View style={[css.login_form, {bottom:10}]}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={[css.login_form, {justifyContent: 'flex-end'}]}>
         <TextInput
+          keyboardType='email-address'
           placeholder='Informe o e-mail de login'
           placeholderTextColor='#FF6C01'
-          onChangeText={text=>setEmail(text)}
-          style={[css.login_input, {
-            borderTopRightRadius: 10,
-            borderTopLeftRadius: 10,
-            borderBottomRightRadius: 3,
-            borderBottomLeftRadius: 3,
-          }]}/>
+          onChangeText={text=>{setEmail(text), setErrorEmail(null)}}
+          errorMessage={errorEmail}
+          style={[css.login_input, css.container_cadastro]}/>
 
         <TextInput
           placeholder='Insira sua senha'
           placeholderTextColor='#FF6C01'
           secureTextEntry={true}
           onChangeText={text=>setPassword(text)}
-          style={
-            [css.login_input, {
-              borderTopRightRadius: 3,
-              borderTopLeftRadius: 3,
-              borderBottomRightRadius: 10,
-              borderBottomLeftRadius: 10,
-            }
-          ]}/>
+          errorMessage={errorPassowrd}
+          style={[css.login_input, css.container_cadastro]}/>
+
         <TouchableOpacity onPress={()=>navigation.navigate('Fp1')}>
           <Text style={{color: '#fff', textDecorationLine: 'underline'}}>Esqueceu sua senha?</Text>
         </TouchableOpacity>
@@ -115,7 +137,7 @@ export default function EntrarEmail({navigation}) {
           <Text style={css.letra}>Acessar</Text>
         </TouchableOpacity>
 
-      </View>
+      </KeyboardAvoidingView>
 
     </SafeAreaView>
   );

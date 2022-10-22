@@ -1,8 +1,16 @@
-import Checkout from './arearestrita/Checkout';
 import Search from './arearestrita/Search';
+import SearchResult from './arearestrita/Search/SearchResult';
+import DriverProfile from './arearestrita/Search/DriverProfile';
+import SearchDestination from './arearestrita/Search/SearchDestination';
+import PickDate from './arearestrita/Search/PickDate';
+
+import Booking from './arearestrita/Booking';
+import StatusFrete from './arearestrita/Booking/StatusFrete';
+import StatusFreteMotorista from './arearestrita/Booking/StatusFreteMotorista';
+
+import Checkout from './arearestrita/Checkout';
 import Profile from './arearestrita/Profile';
 import Messages from './arearestrita/Messages';
-import Booking from './arearestrita/Booking';
 
 import EntrarEmail from './acess/EntrarEmail';
 import EscolhaLogin from './acess/EscolhaLogin';
@@ -21,7 +29,9 @@ import Fp1 from './acess/forgetPw/Fp1';
 import Fp2 from './acess/forgetPw/Fp2';
 import Fp3 from './acess/forgetPw/Fp3';
 
-
+import Ct1 from './acess/cadTransportador/Ct1';
+import Ct2 from './acess/cadTransportador/Ct2';
+import Foto from './acess/cadTransportador/Foto';
 
 export {
   Search,
@@ -37,10 +47,19 @@ export {
   Cc1,
   Cc2,
   Cc3,
-  Cc4, 
+  Cc4,
   CadConf,
   CadPend,
   Fp1,
   Fp2,
   Fp3,
+  Ct1,
+  Ct2,
+  Foto,
+  SearchResult,
+  DriverProfile,
+  StatusFrete,
+  SearchDestination,
+  PickDate,
+  StatusFreteMotorista
 };

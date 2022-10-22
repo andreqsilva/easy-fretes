@@ -8,6 +8,7 @@ import MenuAcess from '../../assets/components/MenuAcess';
 export default function LoginCliente({navigation}) {
 
   return (
+
     <SafeAreaView style={[css.container, css.initial_cadastro]}>
 
       <MenuAcess navigation={navigation} />

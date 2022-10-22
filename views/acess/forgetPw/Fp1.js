@@ -107,12 +107,8 @@ export default function Fp1 ({navigation}) {
         style={{flex:1, justifyContent:'flex-end'}}
       >
 
-      <TouchableOpacity
-        style={{bottom:70}}
-        onPress={()=>sendFormMail()}>
-        <KeyboardAvoidingView>
-          <Image source={require('../../../assets/img/btnNext.png')}/>
-        </KeyboardAvoidingView>
+      <TouchableOpacity style={{bottom:70}} onPress={()=>sendFormMail()}>
+        <Image source={require('../../../assets/img/btnNext.png')}/>
       </TouchableOpacity>
 
       </KeyboardAvoidingView>
