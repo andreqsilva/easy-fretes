@@ -36,13 +36,13 @@ export default function PickDate (props) {
         distancia: distance.toFixed(2)
       });
     }
-  },[date]);
+  },[distance]);
 
   return (
     <View style={css.container}>
       <MenuAreaRestrita navigation={props.navigation}/>
 
-      { show &&
+      { date &&
         <MapViewDirections
           origin = {props.route.params.origem}
           destination = {props.route.params.destino}
