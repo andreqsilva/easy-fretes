@@ -223,7 +223,7 @@ export default function Booking(props) {
           <View style={{marginLeft: 15}}>
             <Text style={{width: 110, fontSize: 20}}>{item.nome}</Text>
           </View>
-          <View style={{marginLeft: 20}}>
+          <View style={{marginLeft: 5}}>
             <Text style={{fontSize: 13}}>qua. 08 setembro, 08:00</Text>
           </View>
         </View>
@@ -234,7 +234,7 @@ export default function Booking(props) {
           </View>
 
           <Text>  São José dos Campos</Text>
-          <Text style={{marginLeft: 100, fontWeight: 'bold'}}> {item.distancia} km</Text>
+          <Text style={{marginLeft: 70, fontWeight: 'bold'}}> {item.distancia} km</Text>
         </View>
 
         <View style={css.alinhamentoRow}>
@@ -249,7 +249,7 @@ export default function Booking(props) {
           <View style={css.alinhamentoRow}>
             <Image source={require('../../../assets/img/pendente.png')}/>
             <Text>  Aprovação pendente</Text>
-            <Text style={{left: 80, fontSize: 20, fontWeight: 'bold'}}>R$ {item.preco}</Text>
+            <Text style={{marginLeft: 60, fontSize: 20, fontWeight: 'bold'}}>R$ {item.preco}</Text>
           </View>
         }
 
@@ -257,7 +257,7 @@ export default function Booking(props) {
           <View style={css.alinhamentoRow}>
             <Image source={require('../../../assets/img/check_circle.png')}/>
             <Text>  Reserva aprovada</Text>
-            <Text style={{left: 90, fontSize: 20, fontWeight: 'bold'}}>R$ {item.preco}</Text>
+            <Text style={{marginLeft: 70, fontSize: 20, fontWeight: 'bold'}}>R$ {item.preco}</Text>
           </View>
         }
 
