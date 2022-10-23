@@ -17,6 +17,7 @@ export default function Booking(props) {
   const [selectedId,setSelectedId] = useState(null);
   const [travelData,setTravelData] = useState(null);
   const [isEmpty,setIsEmpty] = useState(null);
+  const [sendRequest, setSendRequest] = useState(null);
 
   const [unlockTravelList,setUnlockTravelList] = useState(null);
   const [fileNavigate,setFileNavigate] = useState('none');
@@ -181,6 +182,56 @@ export default function Booking(props) {
        <Text style={{fontSize: 16, paddingLeft: 30, paddingRight: 30, marginTop: 30, textAlign: 'center'}}>Assim que seu frete for confirmado, ele aparecerá aqui para que possa ver detalhes e consultá-lo a qualquer momento!</Text>
      </View>
    </View>
+  );
+
+  const SendRequest = () => ( // tela aguardando aprovação
+    <View>
+
+      <View style={[{marginTop: 58}]}>
+
+        <View>
+          <Text style ={[css.letra_laranja, {fontSize: 24}]}>
+            Fretes com preços{'\n'}baixos para você
+          </Text>
+        </View>
+
+        <View style={[{alignItems: 'flex-end', marginTop: -60}]}>
+          <Image source={require('../../../assets/img/truck-icon.png')} style={[{height: 140, width: 140}]}/>
+        </View>
+      </View>
+
+      <View>
+        <Text style={[css.textoBold, {fontSize: 28, marginTop: 37}]}>
+          Aguardando Aprovação
+        </Text>
+      </View>
+
+      <View style={[{alignItems:'center'}]}>
+        <Text style={[css.textoRegular, {fontSize: 20, marginTop: 65}]}>Seu pedido de reserva foi{'\n'}enviado para o transportador.</Text>
+      </View>
+
+      <View style={[{alignItems: 'center', marginTop: 37}]}>
+        <Image source={require('../../../assets/img/check_circle.png')} style={[{width: 48, height: 48, }]}/>
+      </View>
+
+      <View style={[{marginTop: 36}]}>
+        <Text style={[css.textoMedium, {fontSize: 20}]}>
+          Fique Tranquilo!
+        </Text>
+      </View>
+
+      <View style={[{alignItems: 'center', marginTop: 37}]}>
+        <Text style={[{textAlign: 'center', fontSize: 18}]}>
+        Assim que houver qualquer{'\n'}alteração no estado do seu pedido,{'\n'}você receberá uma notificação.
+        </Text>
+      </View>
+
+      <View style={[{alignItems: 'center', marginTop: 50}]}>
+        <TouchableOpacity>
+          <Image source={require('../../../assets/img/btnOk.png')} />
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 
   const NoEmpty = () => ( // tela lista de fretes
