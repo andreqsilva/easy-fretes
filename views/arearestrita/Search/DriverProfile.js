@@ -67,8 +67,7 @@ export default function DriverProfile(props) {
     });
     let json = await response.json();
     if (json !== 'error') {
-      //navigation.navigate();
-      console.log('Error');
+      props.navigation.navigate('WaitingApproval');
     }
   }
 

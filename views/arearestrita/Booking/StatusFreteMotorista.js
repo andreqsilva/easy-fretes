@@ -71,7 +71,7 @@ export default function StatusFreteMotorista (props) {
     });
     let json = await response.json();
     if (json !== 'error') {
-      props.navigation.navigate('StatusFreteMotorista');
+      acceptFrete();
     }
   }
 
@@ -88,6 +88,23 @@ export default function StatusFreteMotorista (props) {
     }).catch(function(error) {
     	console.log('There has been a problem with your fetch operation: ' + error.message);
     });
+  }
+
+  async function acceptFrete() {
+    let response = await fetch(`${config.urlRoot}acceptFrete`, {
+      method: 'POST',
+      body: JSON.stringify({
+        email: userData.email
+      }),
+      headers:{
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    });
+    let json = await response.json();
+    if (json !== 'error') {
+      props.navigation.navigate('Booking');
+    }
   }
 
   const Pendente = () => (

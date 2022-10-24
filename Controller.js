@@ -69,6 +69,7 @@ app.post('/freteStatus', async (req,res)=>{
   } else {
     response.status = req.body.status;
     response.save();
+    res.send(JSON.stringify('sucess'));
   }
 });
 
@@ -206,6 +207,38 @@ app.post('/create', async (req,res)=>{
     updatedAt: new Date()
   });
   res.send(JSON.stringify('Usuário criado com sucesso'));
+});
+
+app.post('/acceptFrete', async (req,res)=>{
+  const transporter = nodemailer.createTransport({
+    host: SMTP_CONFIG.host,
+    port: SMTP_CONFIG.port,
+    secure: false, // upgrade later with STARTTLS
+    auth: {
+      user: SMTP_CONFIG.user,
+      pass: SMTP_CONFIG.pass
+    },
+    tls: {
+      rejectUnauthorized: false,
+    },
+  });
+
+  var message = {
+    from: "easy.fretes@mailtrap.com.br",
+    to: [req.body.email],
+    subject: "Confimação de agendamento de frete",
+    text: "{nomeMotorista} {data} {hora} {locais}",
+    html: "<p>Confirmação de agendameno de frete: {nomeMotorista} {data} {hora} {locais}</p>"
+  };
+
+  transporter.sendMail(message, function(err) {
+    if (err) {
+      res.send(JSON.stringify('error'))
+    } else {
+      res.send(JSON.stringify('success'));
+    }
+  });
+
 });
 
 app.post('/code-email', async (req,res)=>{

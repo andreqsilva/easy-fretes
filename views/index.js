@@ -3,6 +3,7 @@ import SearchResult from './arearestrita/Search/SearchResult';
 import DriverProfile from './arearestrita/Search/DriverProfile';
 import SearchDestination from './arearestrita/Search/SearchDestination';
 import PickDate from './arearestrita/Search/PickDate';
+import WaitingApproval from './arearestrita/Search/WaitingApproval';
 
 import Booking from './arearestrita/Booking';
 import StatusFrete from './arearestrita/Booking/StatusFrete';
@@ -61,5 +62,6 @@ export {
   StatusFrete,
   SearchDestination,
   PickDate,
-  StatusFreteMotorista
+  StatusFreteMotorista,
+  WaitingApproval
 };
