@@ -12,6 +12,8 @@ export default function StatusFreteMotorista (props) {
   const [status,setStatus] = useState(null);
   const [userData,setUserData] = useState('none');
 
+  console.log(props);
+
   useEffect(()=> {
     getStatus(); // status da viavem
     getUser(); // dados do cliente
@@ -102,6 +104,7 @@ export default function StatusFreteMotorista (props) {
       }
     });
     let json = await response.json();
+    console.log(json);
     if (json !== 'error') {
       props.navigation.navigate('Booking');
     }
@@ -193,7 +196,7 @@ export default function StatusFreteMotorista (props) {
               <View>
                 <Image source={require('../../../assets/img/location_on.png')}/>
               </View>
-              <Text>  São José dos Campos</Text>
+              <Text>  {props.route.params.enderecoOrigem}</Text>
             </View>
 
             <View style={css.alinhamentoRow}>
@@ -201,10 +204,10 @@ export default function StatusFreteMotorista (props) {
                 <Image source={require('../../../assets/img/location_off.png')}/>
               </View>
 
-              <Text>  São Paulo</Text>
+              <Text>  {props.route.params.enderecoDestino}</Text>
 
               <View style={css.alinhamentoRow}>
-                <Text style={{left: 140, fontSize: 17}}>R$ {props.route.params.preco}</Text>
+                <Text style={{marginLeft: 70, fontSize: 17}}>R$ {props.route.params.preco}</Text>
               </View>
             </View>
           </View>

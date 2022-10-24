@@ -24,13 +24,6 @@ export default function Search({navigation}) {
 
   //const mapEl = useRef(null);
   const [origin,setOrigin] = useState(null);
-  const [destination,setDestination] = useState(null);
-  const [distance,setDistance] = useState(null);
-  const [duration,setDuration] = useState(null);
-  const [price,setPrice] = useState(null);
-  const [adressOrigin,setAdressOrigin] = useState(null);
-  const [adressDestination,setAdressDestination] = useState(null);
-
   const [searchFocused, setSearchFocused] = useState(null);
 
   useEffect(()=> {
@@ -107,7 +100,7 @@ export default function Search({navigation}) {
             setOrigin({
               latitude: details.geometry.location.lat,
               longitude: details.geometry.location.lng,
-              //title: data.structured_formatting.main_text
+              title: data.structured_formatting.main_text
             })
           }
           query={{

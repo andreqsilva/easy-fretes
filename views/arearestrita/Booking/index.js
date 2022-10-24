@@ -12,8 +12,11 @@ export default function Booking(props) {
   const [userId,setUserId] = useState(null);
   const [userTipo,setUserTipo] = useState(null);
   const [data,setData] = useState(null);
+
   const [userData,setUserData] = useState(null);
   const [priceData,setPriceData] = useState(null);
+  const [localizationData,setLocalizationData] = useState(null);
+
   const [selectedId,setSelectedId] = useState(null);
   const [travelData,setTravelData] = useState(null);
   const [isEmpty,setIsEmpty] = useState(null);
@@ -33,10 +36,11 @@ export default function Booking(props) {
 
   useEffect(()=> {
     if (travelData !== null) {
-        if (travelData.length > 0) {
+         if (travelData.length > 0) {
           setIsEmpty(true); // fretes encontrados
           getUser(); // dados do motorista (ou cliente)
           getPrice(); // dados do preço
+          getLocalization(); // dados da localização
         } else {
           setIsEmpty(false); // nenhum frete encontrado
         }
@@ -44,7 +48,7 @@ export default function Booking(props) {
   },[travelData]);
 
   useEffect(()=> { // monta lista de fretes
-    if (userData !== null && priceData !== null) {
+    if (userData !== null && priceData !== null && localizationData !== null) {
       let listData = [];
       for (let i = 0; i < travelData.length; i++) {
         if (userTipo === 0) {
@@ -55,6 +59,8 @@ export default function Booking(props) {
             codUser: travelData[i].codMotorista,
             nome: userData[i].nome,
             preco: priceData[i].preco,
+            enderecoOrigem: localizationData[i].enderecoOrigem,
+            enderecoDestino: localizationData[i].enderecoDestino,
             distancia: priceData[i].distancia
           });
         } else {
@@ -65,13 +71,15 @@ export default function Booking(props) {
             codUser: travelData[i].codCliente,
             nome: userData[i].nome,
             preco: priceData[i].preco,
+            enderecoOrigem: localizationData[i].enderecoOrigem,
+            enderecoDestino: localizationData[i].enderecoDestino,
             distancia: priceData[i].distancia
           });
         }
       }
       setData(listData);
     }
-  },[userData,priceData]);
+  },[userData,priceData,localizationData]);
 
   async function getUserDetails() { // dados do usuário logado
     let response = await AsyncStorage.getItem('userData');
@@ -119,7 +127,7 @@ export default function Booking(props) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          id: codigo
+          id: codigo,
         })
       }).catch(function(error) {
         console.log('There has been a problem with your fetch operation: ' + error.message);
@@ -160,6 +168,34 @@ export default function Booking(props) {
       }
     }
     setPriceData(listData);
+  }
+
+  async function getLocalization() { // dados da localização
+    let listData = [];
+    for (let i = 0; i < travelData.length; i++) {
+      let response = await fetch(`${config.urlRoot}getLocalization`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          id: travelData[i].codLocalizacao
+        })
+      }).catch(function(error) {
+        console.log('There has been a problem with your fetch operation: ' + error.message);
+      });
+      let json = await response.json();
+      console.log(json);
+      if (json !== 'error') {
+        let travelDetail = {
+          enderecoOrigem: json.enderecoOrigem,
+          enderecoDestino: json.enderecoDestino
+        }
+        listData.push(travelDetail);
+      }
+    }
+    setLocalizationData(listData);
   }
 
   const Empty = () => ( // tela nenhum frete encontrado
@@ -210,7 +246,8 @@ export default function Booking(props) {
     <TouchableOpacity
       onPress={()=>props.navigation.navigate(fileNavigate, {
                     idTravel: item.id, status: item.status, codUser: item.codUser,
-                    nome: item.nome, preco: item.preco})}
+                    nome: item.nome, preco: item.preco, enderecoOrigem: item.enderecoOrigem,
+                    enderecoDestino: item.enderecoDestino})}
       style={[css.box_profile, {marginTop: 30}]}
     >
       <View>
@@ -233,7 +270,7 @@ export default function Booking(props) {
             <Image source={require('../../../assets/img/location_on.png')}/>
           </View>
 
-          <Text>  São José dos Campos</Text>
+          <Text>  {item.enderecoOrigem}</Text>
           <Text style={{marginLeft: 70, fontWeight: 'bold'}}> {item.distancia} km</Text>
         </View>
 
@@ -242,7 +279,7 @@ export default function Booking(props) {
             <Image source={require('../../../assets/img/location_off.png')}/>
           </View>
 
-          <Text>  São Paulo</Text>
+          <Text>  {item.enderecoDestino}</Text>
         </View>
 
         { item.status === 0 &&

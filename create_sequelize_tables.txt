@@ -6,7 +6,7 @@ npx sequelize-cli model:generate --name Veiculo --attributes documento:integer,m
 
 # Localização
 npx sequelize-cli model:generate --name Localizacao --attributes latitudeOrigem:string,longitudeOrigem:string,latitudeDestino:string,longitudeDestino:string,distancia:float
-npx sequelize-cli model:generate --name Localization --attributes latitudeOrigem:string,longitudeOrigem:string,latitudeDestino:string,longitudeDestino:string,distancia:float
+npx sequelize-cli model:generate --name Localization --attributes latitudeOrigem:string,longitudeOrigem:string,latitudeDestino:string,longitudeDestino:string,enderecoOrigem:string,enderecoDestino:string,distancia:float
 
 # Preço
 npx sequelize-cli model:generate --name Preco --attributes codLocalizacao:integer,valor:float,distancia:float

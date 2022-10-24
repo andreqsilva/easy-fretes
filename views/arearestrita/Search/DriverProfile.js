@@ -56,6 +56,8 @@ export default function DriverProfile(props) {
         longitudeOrigem: props.route.params.origem.longitude,
         latitudeDestino: props.route.params.destino.latitude,
         longitudeDestino: props.route.params.destino.longitude,
+        enderecoOrigem: props.route.params.origem.title,
+        enderecoDestino: props.route.params.destino.title,
         distancia: props.route.params.distancia,
         preco: props.route.params.preco,
         codMotorista: props.route.params.codMotorista,

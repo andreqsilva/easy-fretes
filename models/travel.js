@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Travel.hasOne(models.Price);
       Travel.hasOne(models.Localization);
+      Travel.hasOne(models.Price);
     }
   }
   Travel.init({

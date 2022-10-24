@@ -84,7 +84,7 @@ export default function StatusFrete (props) {
               <View>
                 <Image source={require('../../../assets/img/location_on.png')}/>
               </View>
-              <Text>  São José dos Campos</Text>
+              <Text>  {props.route.params.enderecoOrigem}</Text>
             </View>
 
             <View style={css.alinhamentoRow}>
@@ -92,9 +92,9 @@ export default function StatusFrete (props) {
                 <Image source={require('../../../assets/img/location_off.png')}/>
               </View>
 
-              <Text>  São Paulo</Text>
+              <Text>  {props.route.params.enderecoDestino}</Text>
               <View style={css.alinhamentoRow}>
-                <Text style={{marginLeft: 90, fontSize: 17}}>R$ {props.route.params.preco}</Text>
+                <Text style={{marginLeft: 70, fontSize: 17}}>R$ {props.route.params.preco}</Text>
               </View>
             </View>
           </View>

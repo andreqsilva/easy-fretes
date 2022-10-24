@@ -20,6 +20,12 @@ module.exports = {
       longitudeDestino: {
         type: Sequelize.STRING
       },
+      enderecoOrigem: {
+        type: Sequelize.STRING
+      },
+      enderecoDestino: {
+        type: Sequelize.STRING
+      },
       distancia: {
         type: Sequelize.FLOAT
       },

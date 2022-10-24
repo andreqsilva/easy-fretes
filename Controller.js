@@ -27,11 +27,13 @@ app.post('/travelList', async (req,res)=>{
   let response;
   if (req.body.tipo === 0) { // cliente
     response = await viagem.findAll({
-      where: {codCliente: req.body.codigo}
+      where: {codCliente: req.body.codigo},
+      attributes: ['id', 'status', 'codPreco', 'codLocalizacao', 'codMotorista']
     });
   } else { // motorista
     response = await viagem.findAll({
-      where: {codMotorista: req.body.codigo}
+      where: {codMotorista: req.body.codigo},
+      attributes: ['id', 'status', 'codPreco', 'codLocalizacao', 'codCliente']
     });
   }
   if (response === null){
@@ -43,7 +45,8 @@ app.post('/travelList', async (req,res)=>{
 
 app.post('/getTravel', async (req,res)=>{
   let response = await viagem.findOne({
-    where: {id:req.body.id}
+    where: {id:req.body.id},
+    attributes: ['status']
   });
   if (response === null){
     res.send(JSON.stringify('error'));
@@ -62,7 +65,8 @@ app.post('/deleteTravel', async (req,res)=>{
 // criada para testes
 app.post('/freteStatus', async (req,res)=>{
   let response = await viagem.findOne({
-    where:{id: req.body.id}
+    where:{id: req.body.id},
+    attributes: ['id', 'status']
   });
   if (response === null){
     res.send(JSON.stringify('error'));
@@ -75,7 +79,8 @@ app.post('/freteStatus', async (req,res)=>{
 
 app.post('/getUser', async (req,res)=>{
   let response = await usuario.findOne({
-    where: {id: req.body.id}
+    where: {id: req.body.id},
+    attributes: ['id', 'nome', 'email', 'telefone']
   });
   if (response === null){
     res.send(JSON.stringify('error'));
@@ -98,7 +103,8 @@ app.post('/getPrice', async (req,res)=>{
 
 app.post('/getLocalization', async (req,res)=>{
   let response = await localizacao.findOne({
-    where: {id: req.body.id}
+    where: {id: req.body.id},
+    attributes: ['enderecoOrigem', 'enderecoDestino']
   });
   if (response === null){
     res.send(JSON.stringify('error'));
@@ -116,6 +122,8 @@ app.post('/travelCreate', async (req,res)=>{
     longitudeOrigem: req.body.longitudeOrigem,
     latitudeDestino: req.body.latitudeDestino,
     longitudeDestino: req.body.longitudeDestino,
+    enderecoOrigem: req.body.enderecoOrigem,
+    enderecoDestino: req.body.enderecoDestino,
     distancia: req.body.distancia,
     createdAt: new Date(),
     updatedAt: new Date()

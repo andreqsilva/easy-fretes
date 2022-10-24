@@ -47,6 +47,7 @@ export default function SearchDestination(props) {
             setDestination({
               latitude: details.geometry.location.lat,
               longitude: details.geometry.location.lng,
+              title: data.structured_formatting.main_text
             })
           }
           query={{
