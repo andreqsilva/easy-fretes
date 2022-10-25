@@ -19,9 +19,9 @@ module.exports = (sequelize, DataTypes) => {
     longitudeOrigem: DataTypes.STRING,
     latitudeDestino: DataTypes.STRING,
     longitudeDestino: DataTypes.STRING,
-    enderecoOrigem: DataTypes.STRING,
-    enderecoDestino: DataTypes.STRING,
-    distancia: DataTypes.FLOAT
+    distancia: DataTypes.FLOAT,
+    Origem: DataTypes.STRING,
+    Destino: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Localization',
