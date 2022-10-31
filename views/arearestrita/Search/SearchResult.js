@@ -51,7 +51,7 @@ export default function SearchResult(props) {
           <Image style={{marginTop: 10}} source={require('../../../assets/img/profile_unknow.png')}/>
         </View>
 
-        <View style={{marginLeft: 20}}>
+        <View style={{marginLeft: 15}}>
           <Text style={{color: 'black', width: 130, fontSize: 20}}>{item.nome}</Text>
 
           <View style={[css.alinhamentoRow, {marginTop: 5}]}>

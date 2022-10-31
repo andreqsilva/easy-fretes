@@ -61,11 +61,13 @@ export default function Fp3 (props) {
                       placeholder='  Insira sua senha'
                       placeholderTextColor='#FF6C01'
                       style={[css.cad_dados, css.container_cadastro, {borderRadius: 8}]}
+                      secureTextEntry={true}
                       onChangeText={text=>setNovaSenha(text)}/>
                     <TextInput
                       placeholder='  Confirme a nova senha'
                       placeholderTextColor='#FF6C01'
                       style={[css.cad_dados, css.container_cadastro, {borderRadius: 8}]}
+                      secureTextEntry={true}
                       onChangeText={text=>setConfNovaSenha(text)}/>
 
                     <View>

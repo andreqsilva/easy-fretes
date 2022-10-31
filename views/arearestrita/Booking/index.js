@@ -286,7 +286,7 @@ export default function Booking(props) {
           <View style={css.alinhamentoRow}>
             <Image source={require('../../../assets/img/pendente.png')}/>
             <Text>  Aprovação pendente</Text>
-            <Text style={{marginLeft: 60, fontSize: 20, fontWeight: 'bold'}}>R$ {item.preco}</Text>
+            <Text style={{marginLeft: 55, fontSize: 20, fontWeight: 'bold'}}>R$ {item.preco}</Text>
           </View>
         }
 
@@ -294,7 +294,7 @@ export default function Booking(props) {
           <View style={css.alinhamentoRow}>
             <Image source={require('../../../assets/img/check_circle.png')}/>
             <Text>  Reserva aprovada</Text>
-            <Text style={{marginLeft: 70, fontSize: 20, fontWeight: 'bold'}}>R$ {item.preco}</Text>
+            <Text style={{marginLeft: 55, fontSize: 20, fontWeight: 'bold'}}>R$ {item.preco}</Text>
           </View>
         }
 
