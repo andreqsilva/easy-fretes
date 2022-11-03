@@ -260,7 +260,7 @@ export default function Booking(props) {
           <View style={{marginLeft: 15}}>
             <Text style={{width: 110, fontSize: 20}}>{item.nome}</Text>
           </View>
-          <View style={{marginLeft: 5}}>
+          <View style={{marginLeft: '-2%'}}>
             <Text style={{fontSize: 13}}>qua. 08 setembro, 08:00</Text>
           </View>
         </View>
@@ -286,7 +286,7 @@ export default function Booking(props) {
           <View style={css.alinhamentoRow}>
             <Image source={require('../../../assets/img/pendente.png')}/>
             <Text>  Aprovação pendente</Text>
-            <Text style={{marginLeft: 55, fontSize: 20, fontWeight: 'bold'}}>R$ {item.preco}</Text>
+            <Text style={{marginLeft: 50, fontSize: 20, fontWeight: 'bold'}}>R$ {item.preco}</Text>
           </View>
         }
 
@@ -294,7 +294,7 @@ export default function Booking(props) {
           <View style={css.alinhamentoRow}>
             <Image source={require('../../../assets/img/check_circle.png')}/>
             <Text>  Reserva aprovada</Text>
-            <Text style={{marginLeft: 55, fontSize: 20, fontWeight: 'bold'}}>R$ {item.preco}</Text>
+            <Text style={{marginLeft: 50, fontSize: 20, fontWeight: 'bold'}}>R$ {item.preco}</Text>
           </View>
         }
 

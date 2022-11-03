@@ -60,7 +60,7 @@ export default function SearchResult(props) {
           </View>
         </View>
 
-        <View style={{marginLeft: 5}}>
+        <View style={{marginLeft: '5%'}}>
           <Text style={{fontSize: 20}}>R$ {props.route.params.preco.replace('.', ',')}</Text>
           </View>
       </View>

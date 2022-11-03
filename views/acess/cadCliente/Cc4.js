@@ -57,7 +57,7 @@ export default function Cc4 (props) {
       <View style={[css.login_form, {marginTop: 40, height: '80%'}]}>
         <View>
           <View style={css.mensagem}>
-            <Text style={[css.letra, {fontSize: 22}]}>Insira uma senha agora</Text>
+            <Text style={[css.letra, {fontSize: 22, alignSelf: 'center'}]}>Insira uma senha agora</Text>
 
           <View>
             <Text

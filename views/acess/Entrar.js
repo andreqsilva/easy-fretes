@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity,} from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput,
+         Button, TouchableOpacity, BackHandler} from 'react-native';
 import { css } from '../../assets/css/Css';
 import React, { useState, useEffect } from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -8,6 +9,12 @@ import MenuAcess from '../../assets/components/MenuAcess';
 
 export default function Entrar({navigation}) {
 
+  /*
+  useEffect(() => {
+    BackHandler.addEventListener('backPress', () => true)
+    return () => BackHandler.removeEventListener('backPress', () => true)
+  }, [])
+  */
   return (
     <SafeAreaView style={[css.container, css.initial_cadastro]}>
 

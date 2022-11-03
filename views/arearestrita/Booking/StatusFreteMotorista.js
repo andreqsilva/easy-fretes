@@ -122,7 +122,7 @@ export default function StatusFreteMotorista (props) {
         </View>
       </View>
 
-      <View style={{marginStart: 225, marginTop: -20, width: 120}}>
+      <View style={{marginStart: 220, marginTop: -20, width: 125}}>
         <Text style={{fontWeight: 'bold'}}>2 avalizações</Text>
       </View>
     </View>

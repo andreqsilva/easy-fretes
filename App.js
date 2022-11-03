@@ -23,13 +23,7 @@ export default function App(props) {
         <Stack.Screen name='Entrar' component={Entrar} options={{headerShown:false}} />
         <Stack.Screen name='EntrarEmail' component={EntrarEmail} options={{headerShown:false}} />
 
-        <Stack.Screen
-          name='AreaRestrita'
-          component={AreaRestrita}
-          options={{
-            headerShown:false,
-          }}
-        />
+        <Stack.Screen name='AreaRestrita'component={AreaRestrita} options={{ headerShown:false}} />
 
         <Stack.Screen name='SearchResult' component={SearchResult} options={{headerShown:false}} />
         <Stack.Screen name='DriverProfile' component={DriverProfile} options={{headerShown:false}} />
