@@ -15,6 +15,16 @@ export default function Entrar({navigation}) {
     return () => BackHandler.removeEventListener('backPress', () => true)
   }, [])
   */
+
+  useEffect(() => {
+    const backAction = () => {
+      navigation.goBack();
+      return true;
+    };
+    const backHandler = BackHandler.addEventListener("hardwareBackPress", backAction);
+    return () => backHandler.remove();
+  },[]);
+
   return (
     <SafeAreaView style={[css.container, css.initial_cadastro]}>
 
