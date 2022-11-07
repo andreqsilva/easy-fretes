@@ -56,14 +56,12 @@ export default function Cc4 (props) {
 
       <View style={[css.login_form, {marginTop: 40, height: '80%'}]}>
         <View>
-          <View style={css.mensagem}>
-            <Text style={[css.letra, {fontSize: 22, alignSelf: 'center'}]}>Insira uma senha agora</Text>
+          <Text style={[css.letra, {fontSize: 22, alignSelf: 'center'}]}>Insira uma senha agora</Text>
 
-          <View>
-            <Text
-              style={[css.letra, {fontSize: 13, textAlign: 'center', marginTop: 25}]}
-                      >Combine pelo menos 8 caracteres, incluindo letras, números e caracteres especiais para garantir uma melhor segurança</Text>
-          </View>
+          <Text style={[css.letra, {fontSize: 13, textAlign: 'center', marginTop: 25}]}>
+              Combine pelo menos 8 caracteres, incluindo letras, números e
+              caracteres especiais para garantir uma melhor segurança
+          </Text>
 
           <TextInput
             placeholder='  Insira sua senha'
@@ -71,7 +69,6 @@ export default function Cc4 (props) {
             onChangeText={text=>setPassword(text)}
             style={[css.cad_dados, css.container_cadastro, {width: 360}]}
             secureTextEntry={isPassword}/>
-          </View>
         </View>
       </View>
 

@@ -20,7 +20,7 @@ export default function Cc2 (props) {
             <MenuAcess navigation={props.navigation}/>
 
             <View style={[css.login_form, {marginTop: 40, height: '80%'}]}>
-                <View style={css.mensagem}>
+                <View>
                     <Text style={[css.letra, {fontSize: 22}]}>Qual o seu nome ?</Text>
                     <TextInput
                       placeholder='  Digite seu nome'
