@@ -2,6 +2,8 @@
   "expo": {
     "name": "easy-fretes",
     "slug": "easy-fretes",
+    "privacy": "public",
+    "description": "Fretes",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
