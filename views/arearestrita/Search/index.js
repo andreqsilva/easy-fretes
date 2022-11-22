@@ -4,8 +4,15 @@ import { Text, View, Button, Image, FlatList, ScrollView,
 import { NavigationContainer } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { css } from '../../../assets/css/Css';
+import Checkbox from 'expo-checkbox';
+
 
 export default function Search({navigation}) {
+
+  const [isChecked, setChecked] = useState(false);
+  const [isChecked2, setChecked2] = useState(false);
+  const [isChecked3, setChecked3] = useState(false);
+  const [isChecked4, setChecked4] = useState(false);
 
   const [items, setItems] = useState([]);
 
@@ -79,7 +86,7 @@ export default function Search({navigation}) {
 
   return(
     <View style={css.container}>
-      <View style={{marginTop: 70, alignItems: 'center'}}>
+      <View style={{marginTop: 40, alignItems: 'center'}}>
         <Text style={[css.letra3, {fontSize: 32, textAlign: 'center', width: 280}]}>O que você deseja transportar?</Text>
         <View style={{alignItems: 'center', width: 310, marginTop: 20}}>
           <Text style={{fontSize: 16, fontWeight: '500', textAlign: 'center'}}>Insira aqui todos os itens e as respectivas quantidades que deseja transportar no frete.</Text>
@@ -96,11 +103,11 @@ export default function Search({navigation}) {
             style={{
               borderRadius: 8,
               backgroundColor: 'lightgray',
-              opacity: 0.35,
+              opacity: 0.7,
               width: 300,
               height: 50,
               padding: 5,
-              marginTop: 5}}/>
+              marginTop: 5,}}/>
         </View>
 
         <View style={{marginTop: 5}}>
@@ -112,7 +119,8 @@ export default function Search({navigation}) {
 
       <ScrollView style={{
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        maxHeight: '25%'
       }}>
         {items.map((item, index) => (
 
@@ -122,7 +130,7 @@ export default function Search({navigation}) {
                 flexDirection: 'column',
                 borderRadius: 8,
                 backgroundColor: '#FFA666',
-                opacity: 0.35,
+                opacity: 0.5,
                 width: 200,
                 height: 45,
                 padding: 5,
@@ -143,6 +151,7 @@ export default function Search({navigation}) {
                   alignItems: 'center',
                   justifyContent: 'center',
                   backgroundColor: '#FFA666',
+                  opacity: 0.5,
                   marginTop: 5,
                   marginLeft: -15,
                   marginRight: -15,
@@ -161,12 +170,58 @@ export default function Search({navigation}) {
         ))}
       </ScrollView>
 
+      <ScrollView style={{
+        display: 'flex',
+        flexDirection: 'column',
+        marginTop: 30
+      }}>
+        <View style={{alignSelf: 'center'}}>
+          <Text style={{fontWeight: 'bold', fontSize: 16}}>Precisa de ajuda terceirizada ?</Text>
+        </View>
+          
+        <View>
+          <View style={[css.alinhamentoRow, css.container_checkbox, {alignSelf: 'center', marginTop: 10}]}>
+
+            <Checkbox style={css.checkbox} value={isChecked} onValueChange={setChecked} 
+                            color={isChecked ? '#FFC100' : undefined}/>
+            <Text style={[css.text_checkbox, {marginLeft: 10}]}>Sim</Text>
+
+            <View style={{marginRight: 80}}></View> 
+
+            <Checkbox style={css.checkbox} value={isChecked2} onValueChange={setChecked2} 
+                            color={isChecked2 ? '#FFC100' : undefined}/>
+            <Text style={[css.text_checkbox, {marginLeft: 10}]}>Não</Text>
+
+          </View>
+        </View>
+
+        <View style={{alignSelf: 'center', marginTop: 10}}>
+          <Text style={{fontWeight: 'bold', fontSize: 16}}>Será necessário subir escadas ?</Text>
+        </View>
+          
+        <View>
+          <View style={[css.alinhamentoRow, css.container_checkbox, {alignSelf: 'center', marginTop: 10}]}>
+
+            <Checkbox style={css.checkbox} value={isChecked3} onValueChange={setChecked3} 
+                            color={isChecked3 ? '#FFC100' : undefined}/>
+            <Text style={[css.text_checkbox, {marginLeft: 10}]}>Sim</Text>
+
+            <View style={{marginRight: 80}}></View> 
+
+            <Checkbox style={css.checkbox} value={isChecked4} onValueChange={setChecked4} 
+                            color={isChecked4 ? '#FFC100' : undefined}/>
+            <Text style={[css.text_checkbox, {marginLeft: 10}]}>Não</Text>
+            
+          </View>
+        </View>
+      </ScrollView>
+
       <View>
         <View style={{alignItems: 'center', alignSelf: 'center', width: 200, marginBottom: -40, fontWeight: '500'}}>
           <Text style={{top: 5, fontSize: 15, fontWeight: '400'}}>Os itens serão conferidos antes de dar início ao frete.</Text>
         </View>
 
-        <View style={{alignItems: 'center', marginBottom: 40}}>
+        <View style={{alignItems: 'center', marginBottom: 20}}>
           {items.length > 0 &&
             <TouchableOpacity onPress={()=>navigation.navigate('SearchOrigin', {items: items})}
               style={[css.button, {borderRadius: 8, backgroundColor: '#ff8c00', width: 300}]}>

@@ -18,10 +18,10 @@ export default function App(props) {
     <NavigationContainer>
       <Stack.Navigator>
 
-        <Stack.Screen name='EscolhaLogin' component={EscolhaLogin} options={{headerShown:false}} />
+        {/* <Stack.Screen name='EscolhaLogin' component={EscolhaLogin} options={{headerShown:false}} />
         <Stack.Screen name='LoginCliente' component={LoginCliente} options={{headerShown: false}} />
         <Stack.Screen name='Entrar' component={Entrar} options={{headerShown:false}} />
-        <Stack.Screen name='EntrarEmail' component={EntrarEmail} options={{headerShown:false}} />
+        <Stack.Screen name='EntrarEmail' component={EntrarEmail} options={{headerShown:false}} /> */}
 
         <Stack.Screen name='AreaRestrita'component={AreaRestrita} options={{ headerShown:false}} />
 
