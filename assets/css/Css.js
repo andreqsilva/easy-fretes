@@ -313,6 +313,23 @@ const css = StyleSheet.create({
     padding: 5,
   }
 
+  textoBold: {
+    fontWeight: 'bold',
+    color: '#282828',
+    textAlign: 'center',
+  },
+
+  textoRegular: {
+    color: '#282828',
+    textAlign: 'center',
+  },
+
+  textoMedium: {
+    fontWeight: '600',
+    color: '#282828',
+    textAlign: 'center',
+  },
+  
 });
 
 export {css};
