@@ -9,6 +9,13 @@ import config from '../../../config';
 
 /* Tela para escolher a data */
 
+/*
+  Preço:
+    300 + (5 * distance) + (100 * numAjudantes)
+        + (8 * grande) + (5 * medio) + (3 * pequenos)
+        + (100 se tiver escada) + (50 * (duration/30))
+*/
+
 export default function PickDate (props) {
 
   const [distance,setDistance] = useState(null);
@@ -31,12 +38,17 @@ export default function PickDate (props) {
   useEffect(()=> {
     if (distance !== null && price !== null) {
       props.navigation.navigate('SearchResult', {
+        items: props.route.params.items,
         origem: props.route.params.origem, destino:props.route.params.destino,
         preco: price.toFixed(2), duracao: duration.toFixed(2),
         distancia: distance.toFixed(2)
       });
     }
   },[distance]);
+
+  // function getPrice(distance, numAjudantes, sizeObjects, ) {
+  //   return
+  // } 
 
   return (
     <View style={css.container}>

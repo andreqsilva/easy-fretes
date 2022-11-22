@@ -4,6 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import AntDesign from 'react-native-vector-icons/AntDesign'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 import { Search, Booking, Messages, Profile, Checkout } from '../views/index';
 
 const Tab = createBottomTabNavigator();
@@ -15,7 +17,7 @@ export default function Tabs() {
     <Tab.Navigator
       activeColor='#333'
       screenOptions={{
-        tabBarActiveBackgroundColor: '#ffb449',
+        //tabBarActiveBackgroundColor: '#ffb449',
         //tabBarInactiveBackgroundColor: '#FFC56F',
         //tabBarActiveBorderRadius: 20,
         tabBarShowLabel: false,
@@ -28,7 +30,7 @@ export default function Tabs() {
           //left: 20,
           //right: 20,
           elevation: 0,
-          backgroundColor: '#FFC56F',
+          backgroundColor: 'white',
           //borderTopRightRadius: 10,//add border top right radius
           //borderTopLeftRadius: 10,//add border top left radius
           //borderRadius: 15,
@@ -43,12 +45,10 @@ export default function Tabs() {
         tabBatLabel: 'Procurar',
         tabBarIcon: ({focused}) => (
           <View style={{alignItems: 'center', justifyContent: 'center'}}>
-            <Icon name='calendar-search' size={25} style={{
-              color: focused ? 'black' : 'grey'
+            <Icon name={focused ? 'truck' : 'truck-outline'} size={25} style={{
+              color: focused ? '#ff8c00' : 'grey'
             }}/>
-            <Text style={{color: focused ? 'black' : 'grey'}}>
-              Procurar
-            </Text>
+
           </View>
 
         )
@@ -58,12 +58,10 @@ export default function Tabs() {
         tabBarLabel: 'Seus Fretes',
         tabBarIcon: ({focused}) => (
           <View style={{alignItems: 'center', justifyContent: 'center'}}>
-            <Icon name='truck-fast-outline' size={25} style={{
-              color: focused ? 'black' : 'gray'
+            <Ionicons name={focused ? 'ios-calendar' : 'ios-calendar-outline'} size={25} style={{
+              color: focused ? '#ff8c00' : 'grey'
             }}/>
-            <Text style={{color: focused ? 'black' : 'grey'}}>
-              Seus Fretes
-            </Text>
+
           </View>
         )
       }}
@@ -73,12 +71,10 @@ export default function Tabs() {
         tabBarLabel: 'Mensagens',
         tabBarIcon: ({focused}) => (
           <View style={{alignItems: 'center', justifyContent: 'center'}}>
-            <Icon name='message-processing-outline' size={25} style={{
-              color: focused ? 'black' : 'grey'
+            <Icon name={focused ? 'message-processing' : 'message-processing-outline'} size={25} style={{
+              color: focused ? '#ff8c00' : 'grey'
             }}/>
-            <Text style={{color: focused ? 'black' : 'grey'}}>
-              Mensagens
-            </Text>
+
           </View>
         )
       }}
@@ -88,12 +84,10 @@ export default function Tabs() {
         tabBarLabel: 'Perfil',
         tabBarIcon: ({focused}) => (
           <View style={{alignItems: 'center', justifyContent: 'center'}}>
-            <Icon name='account-outline' size={25} style={{
-              color: focused ? 'black' : 'grey'
+            <Icon name={focused ? 'account' : 'account-outline'} size={25} style={{
+              color: focused ? '#ff8c00' : 'grey'
             }}/>
-            <Text style={{color: focused ? 'black' : 'grey'}}>
-              Perfil
-            </Text>
+
           </View>
         )
       }}

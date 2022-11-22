@@ -40,7 +40,8 @@ export default function SearchResult(props) {
   const Item = ({ item, onPress }) => (
     <TouchableOpacity
       onPress={()=>props.navigation.navigate('DriverProfile',
-                   {codMotorista: item.id, nome: item.nome, origem:props.route.params.origem,
+                   {items: props.route.params.items,
+                    codMotorista: item.id, nome: item.nome, origem:props.route.params.origem,
                     destino:props.route.params.destino, preco:props.route.params.preco,
                     duracao:props.route.params.duracao, distancia: props.route.params.distancia,
                     })}

@@ -305,6 +305,13 @@ const css = StyleSheet.create({
     color: '#282828',
     textAlign: 'center',
   },
+  addThings: {
+    borderRadius: 8, 
+    backgroundColor: 'orange',
+    opacity: 0.35,
+    width: 200,
+    padding: 5,
+  }
 
 });
 

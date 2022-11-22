@@ -1,4 +1,5 @@
 import Search from './arearestrita/Search';
+import SearchOrigin from './arearestrita/Search/SearchOrigin';
 import SearchResult from './arearestrita/Search/SearchResult';
 import DriverProfile from './arearestrita/Search/DriverProfile';
 import SearchDestination from './arearestrita/Search/SearchDestination';
@@ -60,6 +61,7 @@ export {
   SearchResult,
   DriverProfile,
   StatusFrete,
+  SearchOrigin,
   SearchDestination,
   PickDate,
   StatusFreteMotorista,

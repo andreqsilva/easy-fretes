@@ -8,7 +8,7 @@ import AreaRestrita from './views/arearestrita/AreaRestrita';
 import { Checkout, EscolhaLogin, LoginCliente, Entrar,
          EntrarEmail, Opcao, Cc1, Cc2, Cc3, Cc4,
          CadConf, CadPend, Fp1, Fp2, Fp3, Ct1, Ct2, Foto,
-         SearchResult, DriverProfile, StatusFrete, SearchDestination,
+         SearchResult, DriverProfile, StatusFrete, SearchDestination, SearchOrigin,
          PickDate, StatusFreteMotorista, WaitingApproval} from './views/index';
 
 const Stack = createStackNavigator();
@@ -27,6 +27,7 @@ export default function App(props) {
 
         <Stack.Screen name='SearchResult' component={SearchResult} options={{headerShown:false}} />
         <Stack.Screen name='DriverProfile' component={DriverProfile} options={{headerShown:false}} />
+        <Stack.Screen name='SearchOrigin' component={SearchOrigin} options={{headerShown:false}} />
         <Stack.Screen name='SearchDestination' component={SearchDestination} options={{headerShown:false}} />
         <Stack.Screen name='PickDate' component={PickDate} options={{headerShown:false}} />
         <Stack.Screen name='WaitingApproval' component={WaitingApproval} options={{headerShown:false}} />

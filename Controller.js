@@ -3,11 +3,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const models = require('./models');
 
-// npx sequelize-cli model:generate --name User --attributes name:string,password:string
-// npx sequelize-cli db:migrate
-
-// npx sequelize-cli model:generate --name Usuario --attributes numDoc:integer,nome:string,telefone:string,email:string,avaliacao:integer,tipo:integer
-
 const nodemailer = require('nodemailer');
 const SMTP_CONFIG = require('./config/smtp');
 
@@ -130,7 +125,7 @@ app.post('/travelCreate', async (req,res)=>{
   }).then((response)=>{
     codLocalizacao += response.id;
  });
- console.log(codLocalizacao)
+  //console.log(codLocalizacao)
  await preco.create({
    codLocalizacao: codLocalizacao,
    valor: req.body.preco,
@@ -194,10 +189,11 @@ app.post('/login', async (req,res)=>{
   let response = await usuario.findOne({
     where:{email:req.body.email, senha:req.body.password}
   });
-  console.log(response);
+  //console.log(response);
   if (response === null){
     res.send(JSON.stringify('error'));
   } else {
+    //console.log(response);
     res.send(response);
   }
 });
@@ -312,7 +308,7 @@ app.post('/verifyPass', async (req,res)=>{
       // Faz a atualização
       response.senha = req.body.novaSenha;
       response.save()
-
+console
       res.send(JSON.stringify('Senha atualizada com sucesso!'));
     } else {
       res.send(JSON.stringify('Senhas diferentes'));

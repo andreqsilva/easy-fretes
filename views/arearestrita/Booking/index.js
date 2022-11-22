@@ -235,6 +235,7 @@ export default function Booking(props) {
 
       <FlatList style={{top:20}} // lista de fretes
         data={data}
+        showsVerticalScrollIndicator = {false}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         extraData={selectedId}
