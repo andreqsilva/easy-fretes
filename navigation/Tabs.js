@@ -20,6 +20,7 @@ export default function Tabs() {
         //tabBarActiveBackgroundColor: '#ffb449',
         //tabBarInactiveBackgroundColor: '#FFC56F',
         //tabBarActiveBorderRadius: 20,
+        tabBarHideOnKeyboard: true,
         tabBarShowLabel: false,
         tabBarItemStyle: {
           borderRadius: 10,

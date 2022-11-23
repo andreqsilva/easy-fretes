@@ -306,12 +306,29 @@ const css = StyleSheet.create({
     textAlign: 'center',
   },
   addThings: {
-    borderRadius: 8, 
+    borderRadius: 8,
     backgroundColor: 'orange',
     opacity: 0.35,
     width: 200,
     padding: 5,
-  }
+  },
+  itemsSize: {
+    borderRadius: 8,
+    opacity: 0.35,
+    padding: 5,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#FFA666',
+    marginTop: 5,
+    width: 70,
+    height: 45
+  },
+  checkbox: {
+    margin: 8,
+    borderRadius: 20,
+    color: '#FFC100'
+  },
 
 });
 

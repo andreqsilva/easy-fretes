@@ -1,188 +1,199 @@
-import React, { useState, useEffect, Component } from 'react';
-import { Text, View, Button, Image, FlatList, ScrollView,
-         TouchableOpacity, SafeAreaView, TextInput } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import React, {useState, useEffect, useRef} from 'react';
+import { StyleSheet, Text, View, TouchableOpacity,
+         ScrollView,  Image, KeyboardAvoidingView } from 'react-native';
 import { css } from '../../../assets/css/Css';
+//import MapView from 'react-native-maps';
+//import MapViewDirections from 'react-native-maps-directions';
+//import * as Location from 'expo-location';
+//import * as Permissions from 'expo-permissions';
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import config from '../../../config';
+//import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { SafeAreaView } from 'react-native-safe-area-context';
+//import MenuAreaRestrita from '../../../assets/components/MenuAreaRestrita';
+//import Map from '../../../assets/components/Map';
+//import SearchLocation from '../../../assets/components/SearchLocation';
 
-export default function Search({navigation}) {
+const homePlace = {
+  description: 'Home',
+  geometry: { location: { lat: 48.8152937, lng: 2.4597668 } },
+};
 
-  const [items, setItems] = useState([]);
+/* Tela de busca por endereço de origem */
 
-  let key = items.length;
+export default function Search(props) {
 
-  const [inputValue, setInputValue] = useState('');
-  const [inputQuantity, setInputQuantity] = useState('');
-  const [totalItemCount, setTotalItemCount] = useState(3);
+  //const mapEl = useRef(null);
+  const [origin,setOrigin] = useState(null);
+  const [searchFocused, setSearchFocused] = useState(null);
 
-  const handleAddButtonClick = () => {
-    if (inputValue != '') {
-      const newItem = {
-        itemName: inputValue,
-        quantity: 1,
-        key: ++key
-      };
-
-      const newItems = [...items, newItem];
-      setItems(newItems);
-
-      setInputValue('');
-      setInputQuantity('');
-      calculateTotal();
+/*
+  useEffect(()=> {
+    if (origin !== null) {
+      props.navigation.navigate('SearchDestination', { origem: origin });
     }
-  }
+  },[origin]);
+*/
+  return (
+    /*
+      <View style={css.container}>
 
-  const handleRemoveButtonClick = (index) => {
-    const newItems = [...items];
-    newItems.splice(index, 1);
-    setItems(newItems);
-    calculateTotal();
-  };
-
-  const handleQuantityIncrease = (index) => {
-    const newItems = [...items];
-
-    newItems[index].quantity++;
-
-    setItems(newItems);
-    calculateTotal();
-  }
-
-  const handleQuantityDecrease = (index) => {
-    const newItems = [...items];
-
-    if (newItems[index].quantity == 1) {
-      handleRemoveButtonClick(index);
-    }
-    else {
-      newItems[index].quantity--;
-      setItems(newItems);
-      calculateTotal();
-    }
-  }
-
-  const toggleComplete = (index) => {
-    const newItems = [...items];
-
-    newItems[index].isSelected = !newItems[index].isSelected;
-
-    setItems(newItems);
-  }
-
-  const calculateTotal = () => {
-    const totalItemCount = items.reduce((total, item) => {
-      return total + item.quantity;
-    }, 0);
-
-    setTotalItemCount(totalItemCount);
-  }
-
-  return(
-    <View style={css.container}>
-      <View style={{marginTop: 70, alignItems: 'center'}}>
-        <Text style={[css.letra3, {fontSize: 32, textAlign: 'center', width: 280}]}>O que você deseja transportar?</Text>
-        <View style={{alignItems: 'center', width: 310, marginTop: 20}}>
-          <Text style={{fontSize: 16, fontWeight: '500', textAlign: 'center'}}>Insira aqui todos os itens e as respectivas quantidades que deseja transportar no frete.</Text>
+        <View style={{
+          backgroundColor: 'grey',
+          height: '20%',
+          //flexDirection: 'column',
+          alignItems: 'center',
+        }}>
+          <SearchLocation num={1}/>
         </View>
+        <View style={{
+          backgroundColor: 'green',
+          height: '20%',
+          //flexDirection: 'column',
+          alignItems: 'center',
+        }}>
+          <SearchLocation num={2}/>
+        </View>
+
+      </View>
+  */
+      //<Map />
+
+    <SafeAreaView style={css.container}>
+
+      {/*destination &&
+        <MapViewDirections
+          origin = {origin}
+          destination = {destination}
+          apikey = {config.googleApi}
+          onReady = {result=>{
+            setDistance(result.distance);
+            setPrice(result.distance * 6);
+            //console.log(result.distance);
+            //console.log(result.duration);
+            setDuration(result.duration);
+          }}
+        />
+      */}
+
+      <View style={{
+          height: '20%',
+          //backgroundColor: 'blue',
+          flexDirection: 'column',
+          alignItems: 'center',
+          //position: 'relative',
+          marginTop: 50
+        }}>
+        <Text style={[css.letra_laranja, {fontSize: 25}]}>Fretes com preços{'\n'}baixos para você</Text>
+        <Image
+          source={require('../../../assets/img/truck-icon.png')}
+          style={{ alignSelf: 'flex-end', bottom: 50, left: 5
+          }}
+        />
       </View>
 
-      <View style={[css.alinhamentoRow, {justifyContent: 'space-around', marginTop: 20}]}>
-        <View style={{flexDirection: 'column'}}>
-          <TextInput
-            placeholder='   Insira o nome do item'
-            value={inputValue}
-            placeholderTextColor='black'
-            onChangeText={text=>{setInputValue(text)}}
-            style={{
-              borderRadius: 8,
-              backgroundColor: 'lightgray',
-              opacity: 0.35,
-              width: 300,
-              height: 50,
-              padding: 5,
-              marginTop: 5}}/>
-        </View>
-
-        <View style={{marginTop: 5}}>
-          <TouchableOpacity onPress={()=>handleAddButtonClick()}>
-            <Icon  name='add' size={40}/>
-          </TouchableOpacity>
-        </View>
-      </View>
-
-      <ScrollView style={{
-        display: 'flex',
-        flexDirection: 'column'
-      }}>
-        {items.map((item, index) => (
-
-          <View key={index} style={[css.alinhamentoRow, {justifyContent: 'space-around', marginTop: 20}]}>
-            <View
-              style={{
-                flexDirection: 'column',
-                borderRadius: 8,
-                backgroundColor: '#FFA666',
-                opacity: 0.35,
-                width: 200,
-                height: 45,
-                padding: 5,
-                marginRight: -15,
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginTop: 5}}>
-              <Text style={{fontSize: 15}}>{item.itemName}</Text>
-            </View>
-
-            <TouchableOpacity onPress={()=>handleQuantityIncrease(index)}>
-              <Icon  name='add' size={30} style={{color: 'black'}}/>
-            </TouchableOpacity>
-
-            <View
-                style={[css.addThings,{
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: '#FFA666',
-                  marginTop: 5,
-                  marginLeft: -15,
-                  marginRight: -15,
-                  width: 50,
-                  borderRadius: 8,
-                  height: 45}]}
-            >
-              <Text style={{fontSize: 15}}>{item.quantity}</Text>
-            </View>
-
-            <TouchableOpacity onPress={()=>handleQuantityDecrease(index)}>
-              <Icon name='minimize' size={30} style={{color: 'black', bottom: 10}}/>
-            </TouchableOpacity>
-          </View>
-
-        ))}
-      </ScrollView>
-
-      <View>
-        <View style={{alignItems: 'center', alignSelf: 'center', width: 200, marginBottom: -40, fontWeight: '500'}}>
-          <Text style={{top: 5, fontSize: 15, fontWeight: '400'}}>Os itens serão conferidos antes de dar início ao frete.</Text>
-        </View>
-
-        <View style={{alignItems: 'center', marginBottom: 40}}>
-          {items.length > 0 &&
-            <TouchableOpacity onPress={()=>navigation.navigate('SearchOrigin', {items: items})}
-              style={[css.button, {borderRadius: 8, backgroundColor: '#ff8c00', width: 300}]}>
-              <Text style={css.letra}>Continuar</Text>
-            </TouchableOpacity>
+      <View style={{height: '60%'}}>
+        <GooglePlacesAutocomplete
+          placeholder='> De (insira o endereço completo)'
+          placeholderTexColor='#333'
+          onPress={(data, details = null) =>
+            setOrigin({
+              latitude: details.geometry.location.lat,
+              longitude: details.geometry.location.lng,
+              latitudeDelta: 0.0143,
+              longitudeDelta: 0.0134,
+              title: data.structured_formatting.main_text
+            })
           }
-
-          {items.length == 0 &&
-            <TouchableOpacity
-              style={[css.button, {borderRadius: 8, backgroundColor: 'lightgray', width: 300}]}>
-              <Text style={css.letra}>Continuar</Text>
-            </TouchableOpacity>
-          }
-        </View>
+          query={{
+            key: config.googleApi,
+            language: 'pt-br',
+            components: 'country:br'
+          }}
+          textInputProps={{
+            onFocus: () => {setSearchFocused(true)},
+            onBlur: () => {setSearchFocused(false)},
+            autoCaptalize: 'none',
+            autoCorret: false
+          }}
+          listViewDisplayed={searchFocused}
+          fetchDetails // informações adicionais dos locais
+          enablePoweredByContainer={false}
+          styles={{
+            container: {
+              position: 'absolute',
+              top: Platform.select({ ios: 60, android: 40 }),
+              width: '100%'
+            },
+            textInputContainer: {
+              flex: 1,
+              backgroundColor: 'transparent',
+              height: 54,
+              marginHorizontal: 20,
+              borderTopWidth: 0,
+              borderBottomWidth: 0,
+            },
+            textInput: {
+              backgroundColor: 'lightgrey',
+              height: 60,
+              margin: 0,
+              borderRadius: 10,
+              paddingTop: 0,
+              paddingBottom: 0,
+              paddingRigth: 20,
+              paddingLeft: 20,
+              marginTop: 0,
+              marginLeft: 0,
+              marginRight: 0,
+              shadowColor: '#000',
+              shadowOpacity: 0.1,
+              shadowOffset: { x: 0, y: 0 },
+              shadowRadius: 15,
+              borderWidth: 1,
+              borderColor: '#DDD',
+              fontSize: 18,
+            },
+            listView: {
+              borderWidth: 1,
+              borderColor: '#DDD',
+              backgroundColor: '#FFF',
+              marginHorizontal: 20,
+              elevation: 5,
+              shadowColor: '#000',
+              shadowOpacity: 0.1,
+              shadowOffset: { x: 0, y: 0 },
+              shadowRadius: 15,
+              marginTop: 10
+            },
+            description: {
+              fontSize: 16,
+            },
+            row: {
+              padding: 20,
+              height: 58
+            }
+          }}
+        >
+        </GooglePlacesAutocomplete>
       </View>
 
-    </View>
+
+      {!searchFocused && origin &&
+        <TouchableOpacity onPress={()=>props.navigation.navigate('SearchDestination', {
+             origem: origin })}
+          style={[css.button, {borderRadius: 8, bottom: 30, alignSelf: 'center', backgroundColor: '#ff8c00', width: 300}]}>
+          <Text style={css.letra}>Continuar</Text>
+        </TouchableOpacity>
+      }
+
+      {!searchFocused && !origin &&
+        <TouchableOpacity
+          style={[css.button, {borderRadius: 8, bottom: 30, alignSelf: 'center', backgroundColor: 'lightgray', width: 300}]}>
+          <Text style={css.letra}>Continuar</Text>
+        </TouchableOpacity>
+      }
+
+    </SafeAreaView>
+
   );
 }

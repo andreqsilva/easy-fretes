@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import { Text, View, TextInput, Image, TouchableOpacity, FlatList } from 'react-native';
+import { Text, View, TextInput, Image, RefreshControl,
+         TouchableOpacity, FlatList } from 'react-native';
 import { css } from '../../../assets/css/Css';
 import MenuAreaRestrita from '../../../assets/components/MenuAreaRestrita';
 import config from '../../../config/config.json';
@@ -23,6 +24,17 @@ export default function Booking(props) {
 
   const [unlockTravelList,setUnlockTravelList] = useState(null);
   const [fileNavigate,setFileNavigate] = useState('none');
+
+  const wait = (timeout) => {
+    return new Promise(resolve => setTimeout(resolve, timeout));
+  }
+
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    wait(2000).then(() => setRefreshing(false));
+  }, []);
 
   useEffect(()=> {
     getUserDetails(); // busca dados do usuário logado
@@ -239,6 +251,12 @@ export default function Booking(props) {
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         extraData={selectedId}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+          />
+        }
       />
     </View>
   );
