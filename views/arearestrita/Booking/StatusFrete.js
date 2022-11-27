@@ -11,6 +11,7 @@ import config from '../../../config/config.json';
 export default function StatusFrete (props) {
 
   const [data,setData] = useState('none');
+  const [visibleModal, setVisibleModal] = useState(false);
 
   useEffect(()=> {
     driverProfile(); // dados do motorista
@@ -147,10 +148,30 @@ export default function StatusFrete (props) {
 
         <View style={{alignItems: 'center', marginTop: -25}}>
           <TouchableOpacity
-            onPress={()=>deleteFrete()}
+            // onPress={()=>deleteFrete()}
+            onPress={() => setVisibleModal(true)}
             style={[css.button, {borderRadius: 8, backgroundColor: '#ff8c00'}]}>
             <Text style={css.letra}>Cancelar reserva</Text>
           </TouchableOpacity>
+        
+          <Modal visible = {visibleModal} transparent = {true} onRequestClose = {() => setVisibleModal(false)}>
+            <View style={{flex: 1, opacity: 0.99}}>
+                <View style={{flex: 1, backgroundColor: 'white', margin: '10%', marginTop: 270, marginBottom: 270, marginRight: 30, marginLeft: 30, borderRadius: 10}}>     
+                    
+                  <View style={{maxWidth: 300, alignSelf: 'center', marginTop: 20}}>
+                      <Text style={[css.letra3, {textAlign: 'center', fontSize: 18, fontWeight: '500'}]}>Tem certeza que deseja cancelar esta reserva de frete?</Text>
+                  </View>
+                  
+                  <TouchableOpacity onPress={()=>deleteFrete()} style={[css.button, css.btn_modal]}>
+                      <Text style={[css.letra, {fontSize: 20}]}>Sim</Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity style={[css.button, css.btn_modal, {marginTop: 20}]}>
+                      <Text style={[css.letra, {fontSize: 20}]}>Não</Text>
+                  </TouchableOpacity>
+                </View>
+            </View>
+          </Modal>
         </View>
       </View>
     );

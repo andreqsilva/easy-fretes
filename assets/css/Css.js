@@ -311,6 +311,13 @@ const css = StyleSheet.create({
     opacity: 0.35,
     width: 200,
     padding: 5,
+  },
+  btn_modal: {
+    borderRadius: 8, 
+    backgroundColor: '#ff8c00', 
+    width: '60%', 
+    alignSelf: 'center', 
+    marginTop: 50,
   }
 
 });
