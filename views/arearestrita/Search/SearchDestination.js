@@ -119,7 +119,7 @@ export default function SearchDestination(props) {
             borderBottomWidth: 0,
           },
           textInput: {
-            backgroundColor: 'lightgrey',
+            backgroundColor: 'white',
             height: 60,
             margin: 0,
             borderRadius: 10,

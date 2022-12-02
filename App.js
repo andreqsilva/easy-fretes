@@ -5,10 +5,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { HeaderBackButton } from '@react-navigation/elements';
 //import AsyncStorage from '@react-native-async-storage/async-storage';
 import AreaRestrita from './views/arearestrita/AreaRestrita';
-import { Checkout, EscolhaLogin, LoginCliente, Entrar,
-         EntrarEmail, Opcao, Cc1, Cc2, Cc3, Cc4,
-         CadConf, CadPend, Fp1, Fp2, Fp3, Ct1, Ct2, Foto,
-         SearchResult, DriverProfile, StatusFrete, SearchDestination,
+import { Checkout, EscolhaLogin, Login, Entrar, EntrarEmail, Opcao, Cc1, Cc2, Cc3, Cc4,
+         CadConf, CadPend, Fp1, Fp2, Fp3, Ct1, Ct2, Ct3, Ct4, Ct5, Ct6,
+         Foto,  SearchResult, DriverProfile, StatusFrete, SearchDestination,
          SelectItems, PickDate, StatusFreteMotorista, WaitingApproval} from './views/index';
 
 const Stack = createStackNavigator();
@@ -19,7 +18,7 @@ export default function App(props) {
       <Stack.Navigator>
 
         <Stack.Screen name='EscolhaLogin' component={EscolhaLogin} options={{headerShown:false}} />
-        <Stack.Screen name='LoginCliente' component={LoginCliente} options={{headerShown: false}} />
+        <Stack.Screen name='Login' component={Login} options={{headerShown: false}} />
         <Stack.Screen name='Entrar' component={Entrar} options={{headerShown:false}} />
         <Stack.Screen name='EntrarEmail' component={EntrarEmail} options={{headerShown:false}} />
 
@@ -53,6 +52,10 @@ export default function App(props) {
 
         <Stack.Screen name='Ct1' component={Ct1} options={{headerShown:false}} />
         <Stack.Screen name='Ct2' component={Ct2} options={{headerShown:false}} />
+        <Stack.Screen name='Ct3' component={Ct3} options={{headerShown:false}} />
+        <Stack.Screen name='Ct4' component={Ct4} options={{headerShown:false}} />
+        <Stack.Screen name='Ct5' component={Ct5} options={{headerShown:false}} />
+        <Stack.Screen name='Ct6' component={Ct6} options={{headerShown:false}} />
         <Stack.Screen name='Foto' component={Foto} options={{headerShown:false}} />
 
       </Stack.Navigator>

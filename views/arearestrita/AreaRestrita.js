@@ -24,6 +24,5 @@ export default function AreaRestrita() {
 
     <Tab />
 
-
   );
 }

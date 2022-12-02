@@ -17,23 +17,27 @@ import Messages from './arearestrita/Messages';
 import EntrarEmail from './acess/EntrarEmail';
 import EscolhaLogin from './acess/EscolhaLogin';
 import Entrar from './acess/Entrar';
-import LoginCliente from './acess/LoginCliente';
+import Login from './acess/Login';
 
-import Opcao from './acess/cadCliente/Opcao';
-import Cc1 from './acess/cadCliente/Cc1';
-import Cc2 from './acess/cadCliente/Cc2';
-import Cc3 from './acess/cadCliente/Cc3';
-import Cc4 from './acess/cadCliente/Cc4';
-import CadConf from './acess/cadCliente/CadConf';
-import CadPend from './acess/cadCliente/CadPend';
+import Opcao from './acess/cadastro/Opcao';
+import CadConf from './acess/cadastro/CadConf';
+import Cc1 from './acess/cadastro/cadCliente/Cc1';
+import Cc2 from './acess/cadastro/cadCliente/Cc2';
+import Cc3 from './acess/cadastro/cadCliente/Cc3';
+import Cc4 from './acess/cadastro/cadCliente/Cc4';
+import CadPend from './acess/cadastro/cadCliente/CadPend';
+
+import Ct1 from './acess/cadastro/cadTransportador/Ct1';
+import Ct2 from './acess/cadastro/cadTransportador/Ct2';
+import Ct3 from './acess/cadastro/cadTransportador/Ct3';
+import Ct4 from './acess/cadastro/cadTransportador/Ct4';
+import Ct5 from './acess/cadastro/cadTransportador/Ct5';
+import Ct6 from './acess/cadastro/cadTransportador/Ct6';
+import Foto from './acess/cadastro/cadTransportador/Foto';
 
 import Fp1 from './acess/forgetPw/Fp1';
 import Fp2 from './acess/forgetPw/Fp2';
 import Fp3 from './acess/forgetPw/Fp3';
-
-import Ct1 from './acess/cadTransportador/Ct1';
-import Ct2 from './acess/cadTransportador/Ct2';
-import Foto from './acess/cadTransportador/Foto';
 
 export {
   Search,
@@ -44,7 +48,7 @@ export {
   EntrarEmail,
   EscolhaLogin,
   Entrar,
-  LoginCliente,
+  Login,
   Opcao,
   Cc1,
   Cc2,
@@ -57,6 +61,10 @@ export {
   Fp3,
   Ct1,
   Ct2,
+  Ct3,
+  Ct4,
+  Ct5,
+  Ct6,
   Foto,
   SearchResult,
   DriverProfile,

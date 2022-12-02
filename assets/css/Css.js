@@ -184,18 +184,22 @@ const css = StyleSheet.create({
     //alignSelf: 'flex-end',
     //backgroundColor: 'blue',
     //marginBottom: 10,
-    width: 434,
-    height: 314,
+    //width: 434,
+    //height: 314,
     alignItems: 'center',
     justifyContent: 'center'
   },
   back_menu: {
     //backgroundColor: 'blue',
-    width: '100%',
+    //width: '100%',
     //height: '5%',
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-    top: 10
+    //justifyContent: 'center',
+    //alignItems: 'flex-start',
+    //top: 10
+
+    paddingTop: 40,
+    paddingBottom: 10,
+    width: '100%',
     //marginTop: 40,
     //marginBottom: 20
   },

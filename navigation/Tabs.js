@@ -15,6 +15,7 @@ export default function Tabs() {
   return (
 
     <Tab.Navigator
+      initialRouteName='Search'
       activeColor='#333'
       screenOptions={{
         //tabBarActiveBackgroundColor: '#ffb449',
@@ -41,19 +42,6 @@ export default function Tabs() {
       }}
     >
 
-      <Tab.Screen name="Search" component={Search} options={{
-        headerShown: false,
-        tabBatLabel: 'Procurar',
-        tabBarIcon: ({focused}) => (
-          <View style={{alignItems: 'center', justifyContent: 'center'}}>
-            <Icon name={focused ? 'truck' : 'truck-outline'} size={25} style={{
-              color: focused ? '#ff8c00' : 'grey'
-            }}/>
-
-          </View>
-
-        )
-      }}/>
       <Tab.Screen name="Booking" component={Booking} options={{
         headerShown: false,
         tabBarLabel: 'Seus Fretes',
@@ -67,19 +55,21 @@ export default function Tabs() {
         )
       }}
       />
-      <Tab.Screen name="Messages" component={Messages} options={{
+
+      <Tab.Screen name="Search" component={Search} options={{
         headerShown: false,
-        tabBarLabel: 'Mensagens',
+        tabBatLabel: 'Procurar',
         tabBarIcon: ({focused}) => (
           <View style={{alignItems: 'center', justifyContent: 'center'}}>
-            <Icon name={focused ? 'message-processing' : 'message-processing-outline'} size={25} style={{
+            <Icon name={focused ? 'truck' : 'truck-outline'} size={25} style={{
               color: focused ? '#ff8c00' : 'grey'
             }}/>
 
           </View>
+
         )
-      }}
-      />
+      }}/>
+
       <Tab.Screen name="Profile" component={Profile} options={{
         headerShown: false,
         tabBarLabel: 'Perfil',
@@ -93,6 +83,21 @@ export default function Tabs() {
         )
       }}
       />
+
+
+      {/*<Tab.Screen name="Messages" component={Messages} options={{
+        headerShown: false,
+        tabBarLabel: 'Mensagens',
+        tabBarIcon: ({focused}) => (
+          <View style={{alignItems: 'center', justifyContent: 'center'}}>
+            <Icon name={focused ? 'message-processing' : 'message-processing-outline'} size={25} style={{
+              color: focused ? '#ff8c00' : 'grey'
+            }}/>
+
+          </View>
+        )
+      }}
+      />*/}
 
     </Tab.Navigator>
 

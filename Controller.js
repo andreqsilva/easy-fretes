@@ -205,8 +205,8 @@ app.post('/create', async (req,res)=>{
     senha: req.body.password,
     telefone: '99999',
     email: req.body.email,
-    avaliacao: 0,
-    tipo: 0,
+    avaliacao: 5, // maximo
+    tipo: req.body.type,
     createdAt: new Date(),
     updatedAt: new Date()
   });

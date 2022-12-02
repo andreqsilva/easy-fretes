@@ -4,10 +4,9 @@ import { StyleSheet, Text, View, Image, TextInput,
 import { css } from '../../assets/css/Css';
 import React, { useState, useEffect } from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import MenuAcess from '../../assets/components/MenuAcess';
 
-export default function Entrar({navigation}) {
+export default function Entrar(props) {
 
   /*
   useEffect(() => {
@@ -18,7 +17,7 @@ export default function Entrar({navigation}) {
 
   useEffect(() => {
     const backAction = () => {
-      navigation.goBack();
+      props.navigation.goBack();
       return true;
     };
     const backHandler = BackHandler.addEventListener("hardwareBackPress", backAction);
@@ -26,9 +25,9 @@ export default function Entrar({navigation}) {
   },[]);
 
   return (
-    <SafeAreaView style={[css.container, css.initial_cadastro]}>
+    <View style={[css.container, css.initial_cadastro]}>
 
-      <MenuAcess navigation={navigation}/>
+      <MenuAcess navigation={props.navigation}/>
 
       <View style={css.login_logomarca}>
           <Image style={css.logo} source={require('../../assets/img/topo.png')}/>
@@ -41,7 +40,7 @@ export default function Entrar({navigation}) {
 
       <View style={{marginTop: 40, right: 30}}>
         <TouchableOpacity style={{paddingBottom: 25}}
-          onPress={() => navigation.navigate('EntrarEmail')}
+          onPress={()=>props.navigation.navigate('EntrarEmail')}
         >
           <View style={css.alinhamentoRow}>
             <Image style={css.icon_cadastro} source={require('../../assets/img/vetorEmailAcess.png')}/>
@@ -62,13 +61,15 @@ export default function Entrar({navigation}) {
       </View>
 
       <TouchableOpacity
-        onPress={()=>navigation.navigate('Opcao')}
+        onPress={()=>props.navigation.navigate('Opcao', {type: props.route.params.type})}
       >
         <View>
-          <Text style={{color: '#fff', alignSelf: 'center', textDecorationLine: 'underline'}}>Clique aqui</Text>
+          <Text
+            style={{color: '#fff', alignSelf: 'center', textDecorationLine: 'underline'}}>
+              Clique aqui
+          </Text>
         </View>
       </TouchableOpacity>
-
-    </SafeAreaView>
+    </View>
   );
 }

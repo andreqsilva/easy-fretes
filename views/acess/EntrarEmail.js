@@ -3,7 +3,6 @@ import { Text, View, Image, TextInput, KeyboardAvoidingView,
          TouchableOpacity } from 'react-native';
 import { css } from '../../assets/css/Css';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import MenuAcess from '../../assets/components/MenuAcess';
 import config from '../../config/config.json';
 
@@ -18,7 +17,7 @@ export default function EntrarEmail({navigation}) {
 
   //console.log(email);
   //console.log(password);
-  
+
   useEffect(()=> {
     verifyLogin();
   },[]);
@@ -98,8 +97,7 @@ export default function EntrarEmail({navigation}) {
 
   return (
 
-    <SafeAreaView style={[css.container, css.initial_cadastro]} >
-
+    <View style={[css.container, css.initial_cadastro]} >
       <MenuAcess navigation={navigation}/>
 
       <View style={css.login_logomarca}>
@@ -139,7 +137,6 @@ export default function EntrarEmail({navigation}) {
 
       </KeyboardAvoidingView>
 
-    </SafeAreaView>
+    </View>
   );
-
 }
