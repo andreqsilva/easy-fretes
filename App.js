@@ -8,7 +8,7 @@ import AreaRestrita from './views/arearestrita/AreaRestrita';
 import { Checkout, EscolhaLogin, Login, Entrar, EntrarEmail, Opcao, Cc1, Cc2, Cc3, Cc4,
          CadConf, CadPend, Fp1, Fp2, Fp3, Ct1, Ct2, Ct3, Ct4, Ct5, Ct6,
          Foto,  SearchResult, DriverProfile, StatusFrete, SearchDestination,
-         SelectItems, PickDate, StatusFreteMotorista, WaitingApproval} from './views/index';
+         SelectItems, PickDate, StatusFreteMotorista, WaitingApproval, Checklist} from './views/index';
 
 const Stack = createStackNavigator();
 
@@ -33,6 +33,7 @@ export default function App(props) {
 
         <Stack.Screen name='StatusFrete' component={StatusFrete} options={{headerShown:false}} />
         <Stack.Screen name='StatusFreteMotorista' component={StatusFreteMotorista} options={{headerShown:false}} />
+        {/* <Stack.Screen name='Checklist' component={Checklist} options={{headerShown:false}} /> */}
 
         <Stack.Screen
           name='Checkout'

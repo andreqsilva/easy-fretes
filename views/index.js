@@ -9,6 +9,7 @@ import WaitingApproval from './arearestrita/Search/WaitingApproval';
 import Booking from './arearestrita/Booking';
 import StatusFrete from './arearestrita/Booking/StatusFrete';
 import StatusFreteMotorista from './arearestrita/Booking/StatusFreteMotorista';
+import Checklist from './arearestrita/Booking/Checklist';
 
 import Checkout from './arearestrita/Checkout';
 import Profile from './arearestrita/Profile';
@@ -73,5 +74,6 @@ export {
   PickDate,
   StatusFreteMotorista,
   WaitingApproval,
-  SelectItems
+  SelectItems,
+  Checklist,
 };

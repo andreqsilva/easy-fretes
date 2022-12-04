@@ -67,12 +67,12 @@ export default function SelectItems(props) {
         </View>
       </View>
 
-      <View style={{flexDirection: 'row',  justifyContent: 'space-around', marginTop: 50}}>
-        <Text style={{right: 35, fontSize: 18, fontWeight: '500'}}>
+      <View style={{flexDirection: 'row',  justifyContent: 'space-between', marginTop: 50}}>
+        <Text style={{marginLeft: 30, fontSize: 18, fontWeight: '500'}}>
           Tamanho do móvel
         </Text>
 
-        <Text style={{right: 80,fontSize: 18, fontWeight: '500'}}>
+        <Text style={{marginRight: 125,fontSize: 18, fontWeight: '500'}}>
           Qtde.
         </Text>
       </View>
@@ -83,7 +83,26 @@ export default function SelectItems(props) {
         marginTop: 5
       }}>
           <View>
-            <View style={[css.alinhamentoRow, {justifyContent: 'space-around'}]}>
+
+            <View style={{flexDirection: 'row',  justifyContent: 'space-between', marginTop: 20, alignItems: 'center'}}>
+              <Text style={{marginLeft: 30, fontSize: 18, left: 20}}>Pequeno</Text>
+
+              <View style={[css.itemsSize, {marginLeft: 100}]}>
+                <Text style={{fontSize: 15}}>{quantity.small}</Text>
+              </View>
+
+              <TouchableOpacity onPress={()=>handleQuantityIncrease('small')}
+                style={{marginRight: 1}}>
+                <Icon  name='add' size={28} style={{color: '#282828', marginLeft: 1}}/>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={()=>handleQuantityDecrease('small')}>
+                <Icon name='minimize' size={28} style={{color: '#282828', bottom: 10, marginRight: 30}}/>
+              </TouchableOpacity>
+
+            </View>
+
+            {/* <View style={[css.alinhamentoRow, {justifyContent: 'space-around'}]}>
               <Text style={{fontSize: 18, left: 20}}>Pequeno</Text>
               <View style={[css.itemsSize, {left: 50}]}>
                 <Text style={{fontSize: 15}}>{quantity.small}</Text>
@@ -92,14 +111,32 @@ export default function SelectItems(props) {
               <TouchableOpacity onPress={()=>handleQuantityIncrease('small')}
                 style={{marginRight: -60}}
               >
-                <Icon  name='add' size={30} style={{color: 'black'}}/>
+                <Icon  name='add' size={28} style={{color: 'black'}}/>
               </TouchableOpacity>
               <TouchableOpacity onPress={()=>handleQuantityDecrease('small')}>
-                <Icon name='minimize' size={30} style={{color: 'black', bottom: 10}}/>
+                <Icon name='minimize' size={28} style={{color: 'black', bottom: 10}}/>
               </TouchableOpacity>
+            </View> */}
+
+            <View style={{flexDirection: 'row',  justifyContent: 'space-between', marginTop: 20, alignItems: 'center'}}>
+              <Text style={{marginLeft: 30, fontSize: 18, left: 20}}>Médio</Text>
+
+              <View style={[css.itemsSize, {marginLeft: 120}]}>
+                <Text style={{fontSize: 15}}>{quantity.medium}</Text>
+              </View>
+
+              <TouchableOpacity onPress={()=>handleQuantityIncrease('medium')}
+                style={{marginRight: 1}}>
+                <Icon  name='add' size={28} style={{color: '#282828', marginLeft: 1}}/>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={()=>handleQuantityDecrease('medium')}>
+                <Icon name='minimize' size={28} style={{color: '#282828', bottom: 10, marginRight: 30}}/>
+              </TouchableOpacity>
+              
             </View>
 
-            <View style={[css.alinhamentoRow, {justifyContent: 'space-around', marginTop: 20}]}>
+            {/* <View style={[css.alinhamentoRow, {justifyContent: 'space-around', marginTop: 20}]}>
               <Text style={{fontSize: 18, left: 25}}>Médio</Text>
               <View style={[css.itemsSize, {left: 65}]}>
                 <Text style={{fontSize: 15}}>{quantity.medium}</Text>
@@ -108,14 +145,31 @@ export default function SelectItems(props) {
               <TouchableOpacity onPress={()=>handleQuantityIncrease('medium')}
                 style={{marginRight: -60}}
               >
-                <Icon  name='add' size={30} style={{color: 'black'}}/>
+                <Icon  name='add' size={28} style={{color: 'black'}}/>
               </TouchableOpacity>
               <TouchableOpacity onPress={()=>handleQuantityDecrease('medium')}>
-                <Icon name='minimize' size={30} style={{color: 'black', bottom: 10}}/>
+                <Icon name='minimize' size={28} style={{color: 'black', bottom: 10}}/>
               </TouchableOpacity>
-            </View>
+            </View> */}
 
-            <View style={[css.alinhamentoRow, {justifyContent: 'space-around', marginTop: 20}]}>
+            <View style={{flexDirection: 'row',  justifyContent: 'space-between', marginTop: 20, alignItems: 'center'}}>
+              <Text style={{marginLeft: 30, fontSize: 18, left: 20}}>Grande</Text>
+
+              <View style={[css.itemsSize, {marginLeft: 113}]}>
+                <Text style={{fontSize: 15}}>{quantity.large}</Text>
+              </View>
+
+              <TouchableOpacity onPress={()=>handleQuantityIncrease('large')}
+                style={{marginRight: 1}}>
+                <Icon  name='add' size={28} style={{color: '#282828', marginLeft: 1}}/>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={()=>handleQuantityDecrease('large')}>
+                <Icon name='minimize' size={28} style={{color: '#282828', bottom: 10, marginRight: 30}}/>
+              </TouchableOpacity>
+              
+            </View>
+            {/* <View style={[css.alinhamentoRow, {justifyContent: 'space-around', marginTop: 20}]}>
               <Text style={{fontSize: 18, left: 24}}>Grande</Text>
               <View style={[css.itemsSize, {left: 60}]}>
                 <Text style={{fontSize: 15}}>{quantity.large}</Text>
@@ -124,12 +178,12 @@ export default function SelectItems(props) {
               <TouchableOpacity onPress={()=>handleQuantityIncrease('large')}
                 style={{marginRight: -60}}
               >
-                <Icon  name='add' size={30} style={{color: 'black'}}/>
+                <Icon  name='add' size={28} style={{color: 'black'}}/>
               </TouchableOpacity>
               <TouchableOpacity onPress={()=>handleQuantityDecrease('large')}>
-                <Icon name='minimize' size={30} style={{color: 'black', bottom: 10}}/>
+                <Icon name='minimize' size={28} style={{color: 'black', bottom: 10}}/>
               </TouchableOpacity>
-            </View>
+            </View> */}
           </View>
 
           <View style={[css.alinhamentoRow, {marginTop: 30, alignSelf: 'center'}]}>

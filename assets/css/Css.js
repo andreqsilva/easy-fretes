@@ -4,9 +4,6 @@ const css = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    //justifyContent: 'center',
-    //alignItems: 'center',
-    //justifyContent: 'flex-start',
   },
   initial_cadastro: {
     //backgroundColor: 'rgba(255, 197, 110, 1)',
@@ -318,19 +315,18 @@ const css = StyleSheet.create({
   },
   itemsSize: {
     borderRadius: 8,
-    opacity: 0.35,
+    opacity: 0.5,
     padding: 5,
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#FFA666',
-    marginTop: 5,
-    width: 70,
-    height: 45
+    backgroundColor: '#FFC56F',
+    width: 65,
+    height: 40
   },
   checkbox: {
     margin: 8,
-    borderRadius: 20,
+    borderRadius: 3,
     color: '#FFC100'
   },
 

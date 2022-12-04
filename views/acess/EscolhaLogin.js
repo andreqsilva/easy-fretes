@@ -34,7 +34,7 @@ export default function EscolhaLogin(props) {
               <TouchableOpacity
                 onPress={()=>props.navigation.navigate('Login', {type: 1})}
                 style={[css.button2]}>
-                <Text style={css.letra}>SOU TRANSPOTADOR</Text>
+                <Text style={css.letra}>SOU TRANSPORTADOR</Text>
               </TouchableOpacity>
 
               <TouchableOpacity

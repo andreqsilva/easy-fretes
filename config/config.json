@@ -1,11 +1,12 @@
 {
   "development": {
-    "username": "",
-    "password": "",
+    "username": "admin",
+    "password": "india2022",
     "database": "easyFretes",
-    "host": "",
+    "host": "india-1.czbnqenodij7.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
+
   "test": {
     "username": "root",
     "password": null,
@@ -13,6 +14,7 @@
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
+
   "production": {
     "username": "root",
     "password": null,
@@ -20,5 +22,6 @@
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
-  "urlRoot": "http://...:3000/"
+  "urlRoot": "http://192.168.0.15:3000/"
 }
+

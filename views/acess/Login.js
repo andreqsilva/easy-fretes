@@ -39,7 +39,7 @@ export default function Login(props) {
 
       <TouchableOpacity
         onPress={()=>props.navigation.navigate('Entrar', {type: props.route.params.type})}
-        style={{marginTop: 50}}
+        style={{marginTop: 20}}
       >
         <Text style={[css.letra, {textDecorationLine: 'underline'}]}>Entrar</Text>
       </TouchableOpacity>
