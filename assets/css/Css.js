@@ -326,8 +326,51 @@ const css = StyleSheet.create({
   },
   checkbox: {
     margin: 8,
-    borderRadius: 3,
+    borderRadius: 10,
     color: '#FFC100'
+  },
+  container_checkbox: {
+    marginTop: 50,
+    marginRight: 170
+  },
+  initial_cadastro_white: {
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    flexDirection: 'column',
+    flex: 1,
+  },
+  text_checkbox: {
+    fontSize: 18,
+  },
+  text_veiculos: {
+    fontSize: 30,
+    color: '#FF6C01',
+    maxWidth: 370,
+    marginRight: 90
+  },
+  space_between_checkboxes: {
+    marginTop: 10
+  },
+  picker: {
+    height: 50,
+    width: 150
+  },
+  container_picker: {
+    height: 50,
+    width: 150,
+    backgroundColor: '#FFE699',
+    borderRadius: 8,
+    marginTop: 70,
+    marginRight: 100,
+  },
+  box_input_placa: {
+    backgroundColor: '#FFE699',
+    fontSize: 19,
+    padding: 12,
+    //marginBottom: 15,
+    width: '95%',
+    borderRadius: 5,
+    alignItems: 'center'
   },
 
 });

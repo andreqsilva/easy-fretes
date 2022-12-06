@@ -12,8 +12,6 @@ export default function StatusFreteMotorista (props) {
   const [status,setStatus] = useState(null);
   const [userData,setUserData] = useState('none');
 
-  console.log(props);
-
   useEffect(()=> {
     getStatus(); // status da viavem
     getUser(); // dados do cliente
@@ -104,7 +102,6 @@ export default function StatusFreteMotorista (props) {
       }
     });
     let json = await response.json();
-    console.log(json);
     if (json !== 'error') {
       props.navigation.navigate('Booking');
     }
@@ -169,16 +166,19 @@ export default function StatusFreteMotorista (props) {
       <View style={{alignItems: 'center'}}>
         <Text style={[css.letra3]}>Detalhes do frete</Text>
 
-        { status !== null && status === 0 &&
+        {status !== null && status === 0 &&
           <View style={[css.alinhamentoRow, {marginTop: 30}]}>
             <Image source={require('../../../assets/img/relogio.png')} style={{height: 25, width: 25}}/>
             <Text>    Pedido pendente de aprovação</Text>
           </View>
         }
 
-        { status !== null && status === 1 &&
+        {status !== null && status === 1 &&
           <View style={[css.alinhamentoRow, {marginTop: 30}]}>
-            <Text>  Visualize os detalhes do seu frete</Text>
+            <TouchableOpacity onPress={()=>props.navigation.navigate('Checklist', {
+              type: 1, viagemId: props.route.params.idTravel})}>
+              <Text style={{textDecorationLine: 'underline', fontSize: 16}}>Visualize os detalhes do seu frete</Text>
+            </TouchableOpacity>
           </View>
         }
 
@@ -230,7 +230,7 @@ export default function StatusFreteMotorista (props) {
         </TouchableOpacity>
       </View>
 
-      { status !== null && status === 0 &&
+      {status !== null && status === 0 &&
         <View>
           <View style={{alignItems: 'center', marginTop: -25}}>
             <TouchableOpacity

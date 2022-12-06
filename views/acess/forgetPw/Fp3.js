@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { StyleSheet, Text, View, Image, TextInput, Button,
          TouchableOpacity, KeyboardAvoidingView} from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { css } from '../../../assets/css/Css';
 import { StatusBar } from 'expo-status-bar';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -44,12 +43,12 @@ export default function Fp3 (props) {
   }
 
     return (
-        <SafeAreaView style={[css.initial_cadastro, {flex: 1}]}>
+        <View style={[css.initial_cadastro, {flex: 1}]}>
 
           <MenuAcess navigation={props.navigation}/>
 
 
-            <View style={[css.container_direction, {marginTop: 40}]}>
+            <View style={[css.container_direction, {marginTop: 20}]}>
 
                 <Text
                   style={[css.letra, {fontSize: 25}]}>Insira uma nova senha agora</Text>
@@ -88,6 +87,6 @@ export default function Fp3 (props) {
               </TouchableOpacity>
             </KeyboardAvoidingView>
 
-        </SafeAreaView>
+        </View>
       );
 }

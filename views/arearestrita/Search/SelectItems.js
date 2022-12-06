@@ -24,6 +24,8 @@ export default function SelectItems(props) {
 
   const [isHelperChecked, setHelperChecked] = useState(false);
   const [isStairChecked, setStairChecked] = useState(false);
+  const [helper, setHelper] = useState(0);
+  const [stair, setStair] = useState(0);
   const [price, setPrice] = useState(0);
 
   const handleQuantityIncrease = (size) => {
@@ -41,17 +43,19 @@ export default function SelectItems(props) {
   }
 
   useEffect(() => {
-    let helper = 0;
-    let stair = 0;
+    let newHelper = 0;
+    let newStair = 0;
     if (isHelperChecked === true) {
-      helper = 1;
+      newHelper = 1;
     }
     if (isStairChecked === true) {
-      stair = 1;
+      newStair = 1;
     }
-    let newPrice = (300 + (5 * props.route.params.distancia) + (100 * helper)
+    setHelper(newHelper);
+    setStair(newStair);
+    let newPrice = (300 + (5 * props.route.params.distancia) + (100 * newHelper)
         + (8 * quantity.large) + (5 * quantity.medium) + (3 * quantity.small)
-        + (100 * stair) + (50 * (props.route.params.duracao/30)));
+        + (100 * newStair) + (50 * (props.route.params.duracao/30)));
     setPrice(newPrice);
   },[quantity, isHelperChecked, isStairChecked]);
 
@@ -133,7 +137,7 @@ export default function SelectItems(props) {
               <TouchableOpacity onPress={()=>handleQuantityDecrease('medium')}>
                 <Icon name='minimize' size={28} style={{color: '#282828', bottom: 10, marginRight: 30}}/>
               </TouchableOpacity>
-              
+
             </View>
 
             {/* <View style={[css.alinhamentoRow, {justifyContent: 'space-around', marginTop: 20}]}>
@@ -167,7 +171,7 @@ export default function SelectItems(props) {
               <TouchableOpacity onPress={()=>handleQuantityDecrease('large')}>
                 <Icon name='minimize' size={28} style={{color: '#282828', bottom: 10, marginRight: 30}}/>
               </TouchableOpacity>
-              
+
             </View>
             {/* <View style={[css.alinhamentoRow, {justifyContent: 'space-around', marginTop: 20}]}>
               <Text style={{fontSize: 18, left: 24}}>Grande</Text>
@@ -186,12 +190,12 @@ export default function SelectItems(props) {
             </View> */}
           </View>
 
-          <View style={[css.alinhamentoRow, {marginTop: 30, alignSelf: 'center'}]}>
+          <View style={[css.alinhamentoRow, {marginTop: 40, alignSelf: 'center'}]}>
             <View style={{alignSelf: 'center'}}>
               <Text style={{fontSize: 18}}>Precisa de ajuda terceirizada?</Text>
             </View>
             <View>
-              <View style={[css.container_checkbox, {marginLeft: 35}]}>
+              <View style={[{marginLeft: 35}]}>
                 <Checkbox
                   style={css.checkbox}
                   value={isHelperChecked}
@@ -207,7 +211,7 @@ export default function SelectItems(props) {
               <Text style={{fontSize: 18}}>Será necessário subir escadas?</Text>
             </View>
             <View>
-              <View style={[css.container_checkbox, {marginLeft: 20}]}>
+              <View style={[{marginLeft: 20}]}>
               <Checkbox
                 style={css.checkbox}
                 value={isStairChecked}
@@ -227,9 +231,9 @@ export default function SelectItems(props) {
         <View style={{alignItems: 'center', marginBottom: 40}}>
           {(quantity.small + quantity.medium + quantity.large) > 0 &&
             <TouchableOpacity onPress={()=>props.navigation.navigate('SearchResult', {
-                items: quantity, preco: price.toFixed(2), origem: props.route.params.origem,
-                destino:props.route.params.destino, duracao: props.route.params.duracao,
-                distancia: props.route.params.distancia })}
+                itens: quantity, ajuda: helper, escada: stair, preco: price.toFixed(2),
+                origem: props.route.params.origem, destino:props.route.params.destino,
+                duracao: props.route.params.duracao, distancia: props.route.params.distancia })}
               style={[css.button, {borderRadius: 8, backgroundColor: '#ff8c00', width: 300}]}>
               <Text style={css.letra}>Continuar</Text>
             </TouchableOpacity>

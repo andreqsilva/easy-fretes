@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View, Image, TextInput, Button, Keyboard,
         TouchableOpacity,TouchableWithoutFeedback, KeyboardAvoidingView} from 'react-native';
 import React, {useState, useEffect, useRef} from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { css } from '../../../assets/css/Css';
 import { StatusBar } from 'expo-status-bar';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -39,11 +38,11 @@ export default function Fp2 (props) {
   }
 
     return (
-        <SafeAreaView style={[css.initial_cadastro, {flex: 1}]}>
+        <View style={[css.initial_cadastro, {flex: 1}]}>
 
             <MenuAcess navigation={props.navigation}/>
 
-            <View style={[css.container_direction, {marginTop: 40}]}>
+            <View style={[css.container_direction, {marginTop: 20}]}>
 
               <Text style={[css.letra, {fontSize: 30}]}>Esqueci minha senha</Text>
 
@@ -76,6 +75,6 @@ export default function Fp2 (props) {
               </TouchableOpacity>
           </KeyboardAvoidingView>
 
-        </SafeAreaView>
+        </View>
       );
 }

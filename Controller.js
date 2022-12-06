@@ -13,9 +13,9 @@ app.use(bodyParser.json());
 
 let usuario = models.Usuario;
 let veiculo = models.Veiculo;
-
 let viagem = models.Travel;
 let preco = models.Price;
+let item = models.Item;
 let localizacao = models.Localization;
 
 app.post('/travelList', async (req,res)=>{
@@ -44,6 +44,19 @@ app.post('/getTravel', async (req,res)=>{
     attributes: ['status']
   });
   if (response === null){
+    res.send(JSON.stringify('error'));
+  } else {
+    res.send(response);
+  }
+});
+
+app.post('/getItem', async (req,res)=>{
+  let response = await item.findOne({
+    where: {viagemId: req.body.viagemId},
+    attributes: ['qtdePequeno', 'qtdeMedio', 'qtdeGrande',
+                 'terceirizada', 'escada']
+  });
+  if (response === null) {
     res.send(JSON.stringify('error'));
   } else {
     res.send(response);
@@ -112,6 +125,7 @@ app.post('/getLocalization', async (req,res)=>{
 app.post('/travelCreate', async (req,res)=>{
   let codLocalizacao = '';
   let codPreco = '';
+  let codViagem = '';
   await localizacao.create({
     latitudeOrigem: req.body.latitudeOrigem,
     longitudeOrigem: req.body.longitudeOrigem,
@@ -125,7 +139,6 @@ app.post('/travelCreate', async (req,res)=>{
   }).then((response)=>{
     codLocalizacao += response.id;
  });
-  //console.log(codLocalizacao)
  await preco.create({
    codLocalizacao: codLocalizacao,
    valor: req.body.preco,
@@ -144,8 +157,37 @@ app.post('/travelCreate', async (req,res)=>{
    data: new Date(),
    createdAt: new Date(),
    updatedAt: new Date()
+ }).then((response)=>{
+   codViagem += response.id;
+ });
+ await item.create({
+   qtdePequeno: req.body.qtdePequeno,
+   qtdeMedio: req.body.qtdeMedio,
+   qtdeGrande: req.body.qtdeGrande,
+   terceirizada: req.body.terceirizada,
+   escada: req.body.escada,
+   viagemId: codViagem,
+   createdAt: new Date(),
+   updatedAt: new Date()
  });
   res.send(JSON.stringify('Viagem criada com sucesso!'));
+});
+
+app.post('/vehicleCreate', async (req,res)=>{
+  let create = await veiculo.create({
+    codigoUser: req.body.id,
+    documento: '555',
+    modelo: req.body.modelo,
+    marca: req.body.marca,
+    porte: req.body.porte,
+    pesoMax: req.body.peso,
+    ano: req.body.ano,
+    placa: req.body.placa,
+    tipo: req.body.tipo,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  });
+  res.send(JSON.stringify('Veículo criado com sucesso'));
 });
 
 app.post('/driverList', async (req,res)=>{

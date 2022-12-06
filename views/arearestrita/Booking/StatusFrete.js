@@ -66,7 +66,10 @@ export default function StatusFrete (props) {
 
         { props.route.params.status === 1 &&
           <View style={[css.alinhamentoRow, {marginTop: 30}]}>
-            <Text>  Visualize os detalhes do seu frete</Text>
+            <TouchableOpacity onPress={()=>props.navigation.navigate('Checklist', {
+              type: 0, viagemId: props.route.params.idTravel})}>
+              <Text style={{textDecorationLine: 'underline', fontSize: 16}}>Visualize os detalhes do seu frete</Text>
+            </TouchableOpacity>
           </View>
         }
 

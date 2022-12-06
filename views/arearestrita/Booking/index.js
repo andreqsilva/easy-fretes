@@ -4,7 +4,10 @@ import { Text, View, TextInput, Image, RefreshControl,
 import { css } from '../../../assets/css/Css';
 import MenuAreaRestrita from '../../../assets/components/MenuAreaRestrita';
 import config from '../../../config/config.json';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Entypo from 'react-native-vector-icons/Entypo';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 /* Tela inicial de Seus Fretes */
 
@@ -286,7 +289,7 @@ export default function Booking(props) {
 
         <View style={css.alinhamentoRow}>
           <View>
-            <Image source={require('../../../assets/img/location_on.png')}/>
+            <Entypo name='location-pin' size={18} color='gray' />
           </View>
 
           <Text>  {item.enderecoOrigem}</Text>
@@ -295,7 +298,7 @@ export default function Booking(props) {
 
         <View style={css.alinhamentoRow}>
           <View>
-            <Image source={require('../../../assets/img/location_off.png')}/>
+            <Entypo name='location' size={18} color='gray' />
           </View>
 
           <Text>  {item.enderecoDestino}</Text>
@@ -303,7 +306,7 @@ export default function Booking(props) {
 
         { item.status === 0 &&
           <View style={css.alinhamentoRow}>
-            <Image source={require('../../../assets/img/pendente.png')}/>
+            <MaterialCommunityIcons name='clock-time-four-outline' size={21} color='orange' />
             <Text>  Aprovação pendente</Text>
             <Text style={{marginLeft: 50, fontSize: 20, fontWeight: 'bold'}}>R$ {item.preco}</Text>
           </View>
@@ -311,7 +314,7 @@ export default function Booking(props) {
 
         { item.status === 1 &&
           <View style={css.alinhamentoRow}>
-            <Image source={require('../../../assets/img/check_circle.png')}/>
+            <AntDesign name='checkcircleo' size={18} color='#228B22' />
             <Text>  Reserva aprovada</Text>
             <Text style={{marginLeft: 50, fontSize: 20, fontWeight: 'bold'}}>R$ {item.preco}</Text>
           </View>

@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { Text, View, Image, TouchableOpacity } from 'react-native';
 import { css } from '../../../assets/css/Css';
-import config from '../../../config/config.json';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 export default function WaitingApproval({navigation}) {
 
@@ -30,7 +30,7 @@ export default function WaitingApproval({navigation}) {
       </View>
 
       <View style={[{alignItems: 'center', marginTop: 37}]}>
-        <Image source={require('../../../assets/img/check_circle.png')} style={[{width: 48, height: 48, }]}/>
+        <AntDesign name='checkcircleo' size={40} color='#32CD32' />
       </View>
 
       <View style={[{marginTop: 36}]}>
@@ -45,9 +45,9 @@ export default function WaitingApproval({navigation}) {
         </Text>
       </View>
 
-      <View style={[{alignItems: 'center', marginTop: 50}]}>
+      <View style={[{alignItems: 'center', marginTop: 90}]}>
         <TouchableOpacity onPress={()=>navigation.navigate('Search')}>
-          <Image source={require('../../../assets/img/btnOk.png')} />
+          <FontAwesome5 name='arrow-circle-right' size={60} color='#ff8c00' />
         </TouchableOpacity>
       </View>
 

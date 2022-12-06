@@ -17,6 +17,8 @@ export default function DriverProfile(props) {
     getId(); // busca por id do usuário logado
   },[]);
 
+  console.log(props.route.params);
+
   async function getId() { // id do usuário logado
     let response = await AsyncStorage.getItem('userData');
     let json = await JSON.parse(response);
@@ -62,6 +64,11 @@ export default function DriverProfile(props) {
         preco: props.route.params.preco,
         codMotorista: props.route.params.codMotorista,
         codCliente: codCliente,
+        qtdePequeno: props.route.params.itens.small,
+        qtdeMedio: props.route.params.itens.medium,
+        qtdeGrande: props.route.params.itens.large,
+        terceirizada: props.route.params.ajuda,
+        escada: props.route.params.escada,
         //data: props.route.params.data
       })
     }).catch(function(error) {

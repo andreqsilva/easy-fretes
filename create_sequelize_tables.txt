@@ -16,4 +16,7 @@ npx sequelize-cli model:generate --name Price --attributes codLocalizacao:intege
 npx sequelize-cli model:generate --name Viagem --attributes status:integer,codLocalizacao:integer,codMotorista:integer,codCliente:integer,codPreco:integer,data:date
 npx sequelize-cli model:generate --name Travel --attributes status:integer,codLocalizacao:integer,codMotorista:integer,codCliente:integer,codPreco:integer,data:date
 
+# Item
+npx sequelize-cli model:generate --name Item --attributes qtdePequeno:integer,qtdeMedio:integer,qtdeGrande:integer,terceirizada:integer,escada:integer,viagemId:integer
+
 npx sequelize-cli db:migrate

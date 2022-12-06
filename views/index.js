@@ -11,8 +11,17 @@ import StatusFrete from './arearestrita/Booking/StatusFrete';
 import StatusFreteMotorista from './arearestrita/Booking/StatusFreteMotorista';
 import Checklist from './arearestrita/Booking/Checklist';
 
-import Checkout from './arearestrita/Checkout';
 import Profile from './arearestrita/Profile';
+import YourProfile from './arearestrita/Profile/YourProfile';
+import CadVeiculo1 from './arearestrita/Profile/cadveiculo/CadVeiculo1';
+import CadVeiculo2 from './arearestrita/Profile/cadveiculo/CadVeiculo2';
+import CadVeiculo3 from './arearestrita/Profile/cadveiculo/CadVeiculo3';
+import CadVeiculo4 from './arearestrita/Profile/cadveiculo/CadVeiculo4';
+import CadVeiculo5 from './arearestrita/Profile/cadveiculo/CadVeiculo5';
+import CadVeiculo6 from './arearestrita/Profile/cadveiculo/CadVeiculo6';
+import CadConfVeiculo from './arearestrita/Profile/cadveiculo/CadConfVeiculo';
+
+import Checkout from './arearestrita/Checkout';
 import Messages from './arearestrita/Messages';
 
 import EntrarEmail from './acess/EntrarEmail';
@@ -44,6 +53,14 @@ export {
   Search,
   Checkout,
   Profile,
+  YourProfile,
+  CadVeiculo1,
+  CadVeiculo2,
+  CadVeiculo3,
+  CadVeiculo4,
+  CadVeiculo5,
+  CadVeiculo6,
+  CadConfVeiculo,
   Messages,
   Booking,
   EntrarEmail,
