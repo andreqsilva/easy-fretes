@@ -35,6 +35,8 @@ import Ct1 from './acess/cadTransportador/Ct1';
 import Ct2 from './acess/cadTransportador/Ct2';
 import Foto from './acess/cadTransportador/Foto';
 
+import PerfilMotorista from './acess/perfil/PerfilMotorista';
+
 export {
   Search,
   Checkout,
@@ -65,5 +67,6 @@ export {
   SearchDestination,
   PickDate,
   StatusFreteMotorista,
-  WaitingApproval
+  WaitingApproval,
+  PerfilMotorista
 };

@@ -9,7 +9,7 @@ import { Checkout, EscolhaLogin, LoginCliente, Entrar,
          EntrarEmail, Opcao, Cc1, Cc2, Cc3, Cc4,
          CadConf, CadPend, Fp1, Fp2, Fp3, Ct1, Ct2, Foto,
          SearchResult, DriverProfile, StatusFrete, SearchDestination, SearchOrigin,
-         PickDate, StatusFreteMotorista, WaitingApproval} from './views/index';
+         PickDate, StatusFreteMotorista, WaitingApproval, PerfilMotorista} from './views/index';
 
 const Stack = createStackNavigator();
 
@@ -18,6 +18,7 @@ export default function App(props) {
     <NavigationContainer>
       <Stack.Navigator>
 
+        {/* <Stack.Screen name='PerfilMotorista' component={PerfilMotorista} options={{headerShown:false}} /> */}
         <Stack.Screen name='EscolhaLogin' component={EscolhaLogin} options={{headerShown:false}} />
         <Stack.Screen name='LoginCliente' component={LoginCliente} options={{headerShown: false}} />
         <Stack.Screen name='Entrar' component={Entrar} options={{headerShown:false}} />
