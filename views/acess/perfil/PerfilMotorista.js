@@ -54,7 +54,7 @@ export default function PerfilMotorista(props) {
 
         <View style={css.risquinho} />
 
-            <Text style={{fontSize: 20, textAlign: 'center', marginTop: 20}}>69 mudanças feitas</Text>
+            <Text style={{fontSize: 20, textAlign: 'center', marginTop: 20}}>69 transportes feitos</Text>
 
         <View style={css.risquinho}></View>
 

@@ -36,6 +36,7 @@ import Ct2 from './acess/cadTransportador/Ct2';
 import Foto from './acess/cadTransportador/Foto';
 
 import PerfilMotorista from './acess/perfil/PerfilMotorista';
+import PerfilConsumidor from './acess/perfil/PerfilConsumidor';
 
 export {
   Search,
@@ -68,5 +69,6 @@ export {
   PickDate,
   StatusFreteMotorista,
   WaitingApproval,
-  PerfilMotorista
+  PerfilMotorista,
+  PerfilConsumidor
 };
