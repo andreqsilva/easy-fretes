@@ -64,9 +64,7 @@ export default function Tabs() {
             <Icon name={focused ? 'truck' : 'truck-outline'} size={25} style={{
               color: focused ? '#ff8c00' : 'grey'
             }}/>
-
           </View>
-
         )
       }}/>
 
@@ -78,7 +76,6 @@ export default function Tabs() {
             <Icon name={focused ? 'account' : 'account-outline'} size={25} style={{
               color: focused ? '#ff8c00' : 'grey'
             }}/>
-
           </View>
         )
       }}
@@ -103,16 +100,3 @@ export default function Tabs() {
 
   );
 }
-
-const styles = StyleSheet.create({
-  shadow: {
-    shadowColor: '#7F5DF0',
-    shadowOffset: {
-      width: 0,
-      height: 10,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.5,
-    elevation: 5
-  }
-});

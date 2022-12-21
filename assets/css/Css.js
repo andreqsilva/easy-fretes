@@ -372,7 +372,13 @@ const css = StyleSheet.create({
     borderRadius: 5,
     alignItems: 'center'
   },
-
+  btn_modal: {
+    borderRadius: 8,
+    backgroundColor: '#ff8c00',
+    width: '60%',
+    alignSelf: 'center',
+    marginTop: 50,
+  },
 });
 
 export {css};

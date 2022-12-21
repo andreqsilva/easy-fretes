@@ -201,7 +201,6 @@ export default function Booking(props) {
         console.log('There has been a problem with your fetch operation: ' + error.message);
       });
       let json = await response.json();
-      console.log(json);
       if (json !== 'error') {
         let travelDetail = {
           enderecoOrigem: json.enderecoOrigem,

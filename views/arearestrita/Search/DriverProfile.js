@@ -17,8 +17,6 @@ export default function DriverProfile(props) {
     getId(); // busca por id do usuário logado
   },[]);
 
-  console.log(props.route.params);
-
   async function getId() { // id do usuário logado
     let response = await AsyncStorage.getItem('userData');
     let json = await JSON.parse(response);

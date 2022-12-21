@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, Button, Modal, TouchableOpacity} from 'react-native';
 import React, {useState, useEffect, useRef} from 'react';
 import { css } from '../../../assets/css/Css';
 import { StatusBar } from 'expo-status-bar';
@@ -11,11 +11,20 @@ export default function StatusFreteMotorista (props) {
 
   const [status,setStatus] = useState(null);
   const [userData,setUserData] = useState('none');
+  const [visibleModal, setVisibleModal] = useState(false);
+  const [onDelete, setOnDelete] = useState();
 
   useEffect(()=> {
     getStatus(); // status da viavem
     getUser(); // dados do cliente
   },[]);
+
+  useEffect(()=> {
+    if (onDelete) {
+      deleteFrete()
+      props.navigation.navigate("Feedback");
+    }
+  },[onDelete]);
 
   async function getStatus() { // status da viagem (*)
     let response = await fetch(`${config.urlRoot}getTravel`, {
@@ -253,13 +262,36 @@ export default function StatusFreteMotorista (props) {
       { status !== null && status === 1 &&
         <View style={{alignItems: 'center', marginTop: -35}}>
           <TouchableOpacity
-            onPress={()=>deleteFrete()}
+            onPress={()=>setVisibleModal(true)}
             style={[css.button, {borderRadius: 8, backgroundColor: '#ff8c00', width: 300}]}>
             <Text style={css.letra}>Cancelar reserva</Text>
           </TouchableOpacity>
         </View>
       }
 
+      <Modal
+        visible = {visibleModal}
+        transparent = {true}
+        onRequestClose = {()=>setVisibleModal(false)}
+        animationType={'fade'}
+        >
+        <View style={{flex: 1, opacity: 0.99, backgroundColor:"#00000099"}}>
+          <View style={{flex: 1, backgroundColor: 'white', margin: '10%', marginTop: 270, marginBottom: 270, marginRight: 30, marginLeft: 30, borderRadius: 10}}>
+
+            <View style={{maxWidth: 300, alignSelf: 'center', marginTop: 20}}>
+              <Text style={[css.letra3, {textAlign: 'center', fontSize: 18, fontWeight: '500'}]}>Tem certeza que deseja cancelar esta reserva de frete?</Text>
+            </View>
+
+            <TouchableOpacity onPress={()=>setOnDelete(true)} style={[css.button, css.btn_modal]}>
+              <Text style={[css.letra, {fontSize: 20}]}>Sim</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={()=>setVisibleModal(false)} style={[css.button, css.btn_modal, {marginTop: 20}]}>
+              <Text style={[css.letra, {fontSize: 20}]}>Não</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 }

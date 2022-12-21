@@ -57,11 +57,11 @@ export default function Ct4(props) {
               selectedValue={category}
               onValueChange={(itemValue, itemIndex)=>setCategory(itemValue)}
               style={[{
-                backgroundColor: '#fff',
+                backgroundColor: 'white',
                 width: 100,
+                height: 50,
                 borderRadius: 10,
                 marginRight: 12,
-                height: 10
               }]}
             >
               <Picker.Item label="A" value="A" />
