@@ -72,10 +72,15 @@ export default function Booking(props) {
             id: travelData[i].id,
             status: travelData[i].status,
             codUser: travelData[i].codMotorista,
+            codLocalizacao: travelData[i].codLocalizacao,
             nome: userData[i].nome,
             preco: priceData[i].preco,
             enderecoOrigem: localizationData[i].enderecoOrigem,
             enderecoDestino: localizationData[i].enderecoDestino,
+            latitudeOrigem: localizationData[i].latitudeOrigem,
+            longitudeOrigem: localizationData[i].longitudeOrigem,
+            latitudeDestino: localizationData[i].latitudeDestino,
+            longitudeDestino: localizationData[i].longitudeDestino,
             distancia: priceData[i].distancia
           });
         } else {
@@ -84,10 +89,15 @@ export default function Booking(props) {
             id: travelData[i].id,
             status: travelData[i].status,
             codUser: travelData[i].codCliente,
+            codLocalizacao: travelData[i].codLocalizacao,
             nome: userData[i].nome,
             preco: priceData[i].preco,
             enderecoOrigem: localizationData[i].enderecoOrigem,
             enderecoDestino: localizationData[i].enderecoDestino,
+            latitudeOrigem: localizationData[i].latitudeOrigem,
+            longitudeOrigem: localizationData[i].longitudeOrigem,
+            latitudeDestino: localizationData[i].latitudeDestino,
+            longitudeDestino: localizationData[i].longitudeDestino,
             distancia: priceData[i].distancia
           });
         }
@@ -204,7 +214,11 @@ export default function Booking(props) {
       if (json !== 'error') {
         let travelDetail = {
           enderecoOrigem: json.enderecoOrigem,
-          enderecoDestino: json.enderecoDestino
+          enderecoDestino: json.enderecoDestino,
+          latitudeOrigem: json.latitudeOrigem,
+          longitudeOrigem: json.longitudeOrigem,
+          latitudeDestino: json.latitudeDestino,
+          longitudeDestino: json.longitudeDestino
         }
         listData.push(travelDetail);
       }
@@ -268,7 +282,9 @@ export default function Booking(props) {
       onPress={()=>props.navigation.navigate(fileNavigate, {
                     idTravel: item.id, status: item.status, codUser: item.codUser,
                     nome: item.nome, preco: item.preco, enderecoOrigem: item.enderecoOrigem,
-                    enderecoDestino: item.enderecoDestino})}
+                    codLocalizacao: item.codLocalizacao, enderecoDestino: item.enderecoDestino,
+                    latitudeOrigem: item.latitudeOrigem, longitudeOrigem: item.longitudeOrigem,
+                    latitudeDestino: item.latitudeDestino, longitudeDestino: item.longitudeDestino})}
       style={[css.box_profile, {marginTop: 30}]}
     >
       <View>

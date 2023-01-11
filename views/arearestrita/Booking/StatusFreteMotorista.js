@@ -10,12 +10,12 @@ import config from '../../../config/config.json';
 export default function StatusFreteMotorista (props) {
 
   const [status,setStatus] = useState(null);
-  const [userData,setUserData] = useState('none');
+  const [userData, setUserData] = useState('none');
   const [visibleModal, setVisibleModal] = useState(false);
   const [onDelete, setOnDelete] = useState();
 
   useEffect(()=> {
-    getStatus(); // status da viavem
+    getStatus(); // status da viagem
     getUser(); // dados do cliente
   },[]);
 
@@ -184,8 +184,13 @@ export default function StatusFreteMotorista (props) {
 
         {status !== null && status === 1 &&
           <View style={[css.alinhamentoRow, {marginTop: 30}]}>
-            <TouchableOpacity onPress={()=>props.navigation.navigate('Checklist', {
-              type: 1, viagemId: props.route.params.idTravel})}>
+            <TouchableOpacity onPress={()=>props.navigation.navigate('Route', {
+              type: 1, viagemId: props.route.params.idTravel,
+              codLocalizacao: props.route.params.codLocalizacao,
+              latitudeOrigem: props.route.params.latitudeOrigem,
+              longitudeOrigem: props.route.params.longitudeOrigem,
+              latitudeDestino: props.route.params.latitudeDestino,
+              longitudeDestino: props.route.params.longitudeDestino})}>
               <Text style={{textDecorationLine: 'underline', fontSize: 16}}>Visualize os detalhes do seu frete</Text>
             </TouchableOpacity>
           </View>

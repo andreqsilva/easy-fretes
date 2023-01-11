@@ -10,6 +10,7 @@ import Booking from './arearestrita/Booking';
 import StatusFrete from './arearestrita/Booking/StatusFrete';
 import StatusFreteMotorista from './arearestrita/Booking/StatusFreteMotorista';
 import Checklist from './arearestrita/Booking/Checklist';
+import Route from './arearestrita/Booking/Route';
 import Feedback from './arearestrita/Booking/Feedback';
 
 import Profile from './arearestrita/Profile';
@@ -95,4 +96,5 @@ export {
   SelectItems,
   Checklist,
   Feedback,
+  Route,
 };

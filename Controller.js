@@ -112,7 +112,9 @@ app.post('/getPrice', async (req,res)=>{
 app.post('/getLocalization', async (req,res)=>{
   let response = await localizacao.findOne({
     where: {id: req.body.id},
-    attributes: ['enderecoOrigem', 'enderecoDestino']
+    attributes: ['enderecoOrigem', 'enderecoDestino',
+                 'latitudeOrigem', 'longitudeOrigem',
+                 'latitudeDestino', 'longitudeDestino']
   });
   if (response === null){
     res.send(JSON.stringify('error'));

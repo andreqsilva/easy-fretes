@@ -14,11 +14,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 //import Map from '../../../assets/components/Map';
 //import SearchLocation from '../../../assets/components/SearchLocation';
 
-const homePlace = {
-  description: 'Home',
-  geometry: { location: { lat: 48.8152937, lng: 2.4597668 } },
-};
-
 /* Tela de busca por endereço de origem */
 
 export default function Search(props) {

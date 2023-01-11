@@ -28,6 +28,7 @@ export default function PickDate (props) {
     setShow(true);
   };
 
+  /*
   useEffect(()=> {
     if (distance !== null) {
       props.navigation.navigate('SelectItems', {
@@ -36,6 +37,7 @@ export default function PickDate (props) {
       });
     }
   },[distance]);
+  */
 
   return (
     <View style={css.container}>
@@ -86,6 +88,26 @@ export default function PickDate (props) {
               onChange={onChange}
             />
         )}
+      </View>
+
+      <View style={{marginTop: 250}}>
+        {distance !== null && duration !== null &&
+          <TouchableOpacity
+            onPress={()=>props.navigation.navigate('SelectItems', {
+              origem: props.route.params.origem, destino:props.route.params.destino,
+              duracao: duration.toFixed(2), distancia: distance.toFixed(2)
+            })}
+            style={[css.button, {borderRadius: 8, bottom: 30, alignSelf: 'center', backgroundColor: '#ff8c00', width: 300}]}>
+            <Text style={css.letra}>Continuar</Text>
+          </TouchableOpacity>
+        }
+
+        {distance === null || duration === null &&
+          <TouchableOpacity
+            style={[css.button, {borderRadius: 8, bottom: 30, alignSelf: 'center', backgroundColor: 'lightgray', width: 300}]}>
+            <Text style={css.letra}>Continuar</Text>
+          </TouchableOpacity>
+        }
       </View>
     </View>
   );

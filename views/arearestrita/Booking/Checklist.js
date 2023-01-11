@@ -14,7 +14,7 @@ export default function Checklist(props) {
     getItem();
   },[]);
 
-  async function getItem() { // status da viagem (*)
+  async function getItem() {
     let response = await fetch(`${config.urlRoot}getItem`, {
       method: 'POST',
       headers: {
@@ -109,6 +109,14 @@ export default function Checklist(props) {
                 <TouchableOpacity onPress={()=>props.navigation.navigate('Booking')}
                   style={[css.button, {borderRadius: 8, backgroundColor: '#ff8c00', width: 300}]}>
                   <Text style={css.letra}>Confirmar Móveis</Text>
+                </TouchableOpacity>
+              </View>}
+
+            {props.route.params.type === 0 &&
+              <View style={{alignItems: 'center'}}>
+                <TouchableOpacity onPress={()=>props.navigation.navigate('Booking')}
+                  style={[css.button, {borderRadius: 8, backgroundColor: '#ff8c00', width: 300}]}>
+                  <Text style={css.letra}>Voltar</Text>
                 </TouchableOpacity>
               </View>}
 

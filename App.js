@@ -10,7 +10,7 @@ import { EscolhaLogin, Login, Entrar, EntrarEmail, Opcao, Cc1, Cc2, Cc3, Cc4,
          Foto,  SearchResult, DriverProfile, StatusFrete, SearchDestination,
          SelectItems, PickDate, StatusFreteMotorista, WaitingApproval, Checklist,
          CadVeiculo1, CadVeiculo2, CadVeiculo3, CadVeiculo4, CadVeiculo5,
-         CadVeiculo6, CadConfVeiculo, Settings, Feedback } from './views/index';
+         CadVeiculo6, CadConfVeiculo, Settings, Feedback, Route } from './views/index';
 
 const Stack = createStackNavigator();
 
@@ -47,6 +47,7 @@ export default function App(props) {
         <Stack.Screen name='StatusFreteMotorista' component={StatusFreteMotorista} options={{headerShown:false}} />
         <Stack.Screen name='Checklist' component={Checklist} options={{headerShown:false}} />
         <Stack.Screen name='Feedback' component={Feedback} options={{headerShown:false}} />
+        <Stack.Screen name='Route' component={Route} options={{headerShown:false}} />
 
         <Stack.Screen name='Opcao' component={Opcao} options={{headerShown:false}} />
         <Stack.Screen name='Fp1' component={Fp1} options={{headerShown:false}} />
